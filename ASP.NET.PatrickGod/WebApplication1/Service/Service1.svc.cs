@@ -18,7 +18,7 @@ namespace WebApplication1.Service
         //     add [WebGet(ResponseFormat=WebMessageFormat.Xml)],
         //     and include the following line in the operation body:
         //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
-        [OperationContract, WebGet]
+        [OperationContract, WebGet(ResponseFormat = WebMessageFormat.Json)]
         public string DoWork()
         {
             // Add your operation implementation here
