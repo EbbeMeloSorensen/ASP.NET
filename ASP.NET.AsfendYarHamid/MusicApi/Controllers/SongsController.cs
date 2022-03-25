@@ -30,5 +30,25 @@ namespace MusicApi.Controllers
         {
             return songs;
         }
+
+        // Corresponds to Create
+        [HttpPost]
+        public void Post([FromBody] Song song)
+        {
+            songs.Add(song);
+        }
+
+        // Corresponds to Update
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Song song)
+        {
+            songs[id] = song;
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            songs.RemoveAt(id);
+        }
     }
 }
