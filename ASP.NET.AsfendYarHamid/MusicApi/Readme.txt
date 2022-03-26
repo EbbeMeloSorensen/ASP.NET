@@ -31,7 +31,8 @@
     execution by setting a breakpoint in the Post method in Visual Studio. Also notice that you can maintain a whole set of different http requests
     in postman by clicking the '+' tab to create new ones, and then you can reuse the existing ones.
 14) Add the method 'Put' to the SongsController class. It lets you update an existing song.
-15) Test the Put method in postman like when testing the Post method, but switch to PUT, and also append '/1' to the url, such as
-    'https://localhost:44344/api/songs/1'. Like before, you need to provide a body, and make sure to use an existing id such as 0 or 1
+15) Test the Put method in postman like when testing the Post method, but switch to PUT in the drop down, and also append the index of the record
+    you intend to update, such as '/1' to the url, i.e. 'https://localhost:44344/api/songs/1'. 
+    Like before, you need to provide a body, and make sure to use an existing id such as 0 or 1
 16) Add the method 'Delete' to the SongsController class. It lets you delete an existing song.
-17) Test the Put method in postman like when testing the Put method. Remember to append the url with '/1'. Obviously you don't need a body in this case
+17) Test the Delete method in postman like when testing the Put method. Remember to append the url with '/1'. Obviously you don't need a body in this case

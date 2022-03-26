@@ -1,0 +1,26 @@
+Udemy Course: Rest Api's in Asp.Net Core and C# 2022 Edition
+Instructor: Asfend Yar Hamid
+
+ABSTRACT:
+  Et intro kursus til Rest interfaces med ASP.Net Core, hvor han kommer omkring Postman, Swagger
+
+DEN RØDE TRÅD:
+
+Section 1: Introduction
+  Kort præsentation af, hvad kurset indeholder
+
+Section 2: Setting Up Development Environment
+  Kort gennemgang af, hvordan man installerer Visual Studio og Postman
+
+Section 3: Understand the Basics of Restful Api
+  Her laver han en simpel ASP.Net rest api, som supporterer create, read, update og delete (post, put, get, delete)
+  for et dummy in-memory repository. Han demonstrerer, hvordan det kan testes med Postman, som er et værktøj til at
+  teste API'er. Han kommer kort omkring Swagger, men snakker ikke rigtigt om det.
+
+Section 4: Storing Data in a MS SQL Database with Entity Framework Core
+  Her er det intentionen at erstatte det indledende dummy in-memory repository med et, hvor data persisteres.
+  I den forbindelse benytter han EntityFramework, som han kort introducerer.
+
+  
+  
+
