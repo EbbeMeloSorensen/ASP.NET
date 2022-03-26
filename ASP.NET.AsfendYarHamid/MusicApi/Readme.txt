@@ -9,6 +9,12 @@
    'SongsController' (it has to end with 'Controller').
 6) Add the method Get, that returns a list of songs. Notice the HttpGet attribute.
 7) Click the 'IIS Express' button (with a green trangle) in the (standard) toolbar. This will bring up a web browser with Swagger, 
-   demonstrating the features of the API.
-8) Copy the root address of the url (such as https://localhost:44344/), into 
-9) Launch the postman application, and click the 'Create New ->' link, and then click 'HTTP Request'
+   demonstrating the features of the API. You need to keep it running while using postman in the next steps.
+8) Launch the postman application, and click the 'Create New ->' link, and then click 'HTTP Request'
+9) Copy the root address of the url, postfixed with 'songs' (such as https://localhost:44344/api/songs), into the gray textbox that says 'Get' to the left in postman,
+   and click the blue 'Send' button. At first, you will receive the message: "Could not get response". This is because SSL verification is enabled by default in
+   postman, so you need to disable it.
+10) Navigate to the Settings view in postman by clicking the button with the nut button in the upper right of the postman gui. In the Settings view, disable
+    SSL certificate verification. Now, when you click the blue 'Send' button, you will see the songs from the web api.
+11) Copy the url (such as 'https://localhost:44344/api/songs') to a web browser, and here, you will see the songs as well in json format.
+    Notice that you can only test 'Get' directly in a browser - not Post, Put, or Delete. Det kræver et tool alla Swagger

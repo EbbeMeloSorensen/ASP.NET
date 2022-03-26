@@ -9,7 +9,7 @@ namespace MusicApi.Controllers
     [ApiController]
     public class SongsController : ControllerBase
     {
-        private List<Song> songs = new List<Song>()
+        private static List<Song> songs = new List<Song>()
         {
             new Song
             {
