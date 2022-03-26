@@ -10,4 +10,5 @@
 6) Add the method Get, that returns a list of songs. Notice the HttpGet attribute.
 7) Click the 'IIS Express' button (with a green trangle) in the (standard) toolbar. This will bring up a web browser with Swagger, 
    demonstrating the features of the API.
-8) Copy the root address of the url (such as https://localhost:44344) to a new browser window
+8) Copy the root address of the url (such as https://localhost:44344/), into 
+9) Launch the postman application, and click the 'Create New ->' link, and then click 'HTTP Request'
