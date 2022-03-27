@@ -25,12 +25,19 @@ Section 4: Storing Data in a MS SQL Database with Entity Framework Core
   Så bygger han servicen og implementerer igen Get, Post, Put og Delete og verificerer, at det virker med Postman. 
   Han slutter af med at fortælle om Swagger (som er det samme som OpenAPI) og viser, hvordan man kan bruge Swagger 
   til at demonstrere, hvordan et Rest API kan bruges, og hvor brugeren/klienten kan abstrahere fra, hvordan det er 
-  implementeret.
+  implementeret. Bemærk i øvrigt, at Swagger også viser, hvordan man kan udføre kaldet under anvendelse af curl,
+  som er et command line tool til at foretage kald til Rest api'er.
 
 Section 5: Error Handling & Http Status Codes in Rest API
   Han starter med at fortælle om Http status koder, som bruges til at melde tilbage til klienten, om request gik godt.
   Dernæst laver han lidt om på MusicApi'en fra før, så den bliver mere ren, derved at den returnerer koder og håndterer
   situationer, hvor man prøver at hente, opdatere eller slette noget, der ikke eksisterer.
+  Han tester api'et med postman og demonstrerer, hvordan postman viser de http codes, der returneres, samt eventuelle
+  beskeder, man har valgt at sende sammen med http koden. Han nævner, at det er hensigtsmæssigt at gøre brug af error
+  handling, så man f.eks. undgår at kommunikere udviklertekniske fejlbeskeder til en bruger, der måske ikke er IT kyndig
   
-  
-
+Section 6: Asynchronous Api's in .Net Core
+  Først snakker han om, hvorfor det er nyttigt - det er det f.eks. for at undgå, at tunge operationer, såsom at loade
+  et billede, blokerer for lettere operationer, såsom at loade tekst. Han nævner imidlertid også, at det at operere
+  med asynkrone metoder i vores rest api reelt kun forbedrer skalering, da man under alle omstændigheder vil skulle
+  vente på databasen.
