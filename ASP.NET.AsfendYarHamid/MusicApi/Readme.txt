@@ -5,7 +5,7 @@
 4) Add a folder named Models, and add a class named Song to it. Add the 3 properties: Id, Title and Language to the Song class.
 5) Right click the 'Controllers' folder and select Add->Controller.. in the context menu. In the dialog that
    appears, click 'API' under 'Common' in the tree view to the left, and then select 'API Controller - Empty'
-   select 'MVC Controller - Empty' in the list in the central view, and click the 'Add' button. Assign the name
+   in the list in the central view, and click the 'Add' button. Assign the name
    'SongsController' (it has to end with 'Controller').
 6) Add the method 'Get' to the SongsController class. It returns a list of songs. Notice the HttpGet attribute.
 7) Click the 'IIS Express' button (with a green trangle) in the (standard) toolbar. This will bring up a web browser with Swagger, 
