@@ -41,3 +41,7 @@ Section 6: Asynchronous Api's in .Net Core
   et billede, blokerer for lettere operationer, såsom at loade tekst. Han nævner imidlertid også, at det at operere
   med asynkrone metoder i vores rest api reelt kun forbedrer skalering, da man under alle omstændigheder vil skulle
   vente på databasen.
+
+Section 7: Content Negotiation
+  Content Negotiation har at gøre med, at man som klient har mulighed for at bestemme, hvilket format man gerne vil
+  have sit respons i, f.eks. om det skal være xml eller json.
