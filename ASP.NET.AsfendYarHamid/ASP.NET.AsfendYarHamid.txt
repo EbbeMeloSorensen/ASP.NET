@@ -15,7 +15,9 @@ Section 2: Setting Up Development Environment
 Section 3: Understand the Basics of Restful Api
   Her laver han en simpel ASP.Net rest api, som supporterer create, read, update og delete (post, put, get, delete)
   for et dummy in-memory repository. Han demonstrerer, hvordan det kan testes med Postman, som er et værktøj til at
-  teste API'er. Han kommer kort omkring Swagger, men snakker ikke rigtigt om det.
+  teste API'er. Han kommer kort omkring Swagger, men snakker ikke rigtigt om det. Han nævner i øvrigt, at man, hvis
+  man ønsker at gøre brug af dependency injection, skal ændre i Startup-klassens ConfigureServices-metode, og at
+  Microsoft i øvrigt har gjort det let, men han går ikke dybere ind i det her i section 3.
 
 Section 4: Storing Data in a MS SQL Database with Entity Framework Core
   Her erstattes det indledende dummy in-memory repository med et, hvor data reelt persisteres mellem programkørsler.
