@@ -32,14 +32,14 @@ namespace MusiqApiSqlServer2.Controllers
             //return StatusCode(400); // We could also do like this
             //return StatusCode(StatusCodes.Status400BadRequest); // Similar to the previous, but using a type from the framework
             //return Ok(_dbContext.Songs); // Proper way, where http code 200 is returned explicitly along with the songs
-            return Ok(_dbContext.Songs.ToListAsync()); // asynchronously
+            return Ok(await _dbContext.Songs.ToListAsync()); // asynchronously
         }
 
         // GET api/<SongsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var song = _dbContext.Songs.FindAsync(id);
+            var song = await _dbContext.Songs.FindAsync(id);
 
             if (song == null)
             {
