@@ -1,0 +1,2 @@
+﻿This project was originally made as a copy of MusiqApiSqlServer with the purpose of illustrating
+how it can be improved by sending status code and handling errors like trying to get a non-existing record.

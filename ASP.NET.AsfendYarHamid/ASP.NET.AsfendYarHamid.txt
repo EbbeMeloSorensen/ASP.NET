@@ -18,11 +18,14 @@ Section 3: Understand the Basics of Restful Api
   teste API'er. Han kommer kort omkring Swagger, men snakker ikke rigtigt om det.
 
 Section 4: Storing Data in a MS SQL Database with Entity Framework Core
-  Her erstattes det indledende dummy in-memory repository med et, hvor data persisteres.
-  I den forbindelse benyttes EntityFramework, som kort introduceres. Så bygger han servicen og implementerer igen
-  Get, Post, Put og Delete og verificerer, at det virker med Postman. Han slutter af med at fortælle om Swagger
-  (som vist er det samme som OpenAPI) og viser, hvordan man kan bruge Swagger til at demonstrere, hvordan et
-  Rest API kan bruges, og hvor brugeren/klienten kan abstrahere fra, hvordan det er implementeret.
+  Her erstattes det indledende dummy in-memory repository med et, hvor data reelt persisteres mellem programkørsler.
+  I den forbindelse benyttes EntityFramework, som kort introduceres. Mht EntityFrameworkCore nævner benytter
+  han EnsureCreated, og han nævner, at det er et alternativ til teknikken med at operere med migrations fra
+  Packet Manager Console i Visual Studio, som kun er egnet, hvis ikke man har brug for at ændre på skemaet senere.
+  Så bygger han servicen og implementerer igen Get, Post, Put og Delete og verificerer, at det virker med Postman. 
+  Han slutter af med at fortælle om Swagger (som er det samme som OpenAPI) og viser, hvordan man kan bruge Swagger 
+  til at demonstrere, hvordan et Rest API kan bruges, og hvor brugeren/klienten kan abstrahere fra, hvordan det er 
+  implementeret.
 
 Section 5: Error Handling & Http Status Codes in Rest API
   Han starter med at fortælle om Http status koder, som bruges til at melde tilbage til klienten, om request gik godt.
