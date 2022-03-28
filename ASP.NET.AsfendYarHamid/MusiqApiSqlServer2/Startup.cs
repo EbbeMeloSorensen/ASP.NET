@@ -28,8 +28,8 @@ namespace MusiqApiSqlServer2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+            services.AddMvc().AddXmlSerializerFormatters(); // For supporting Content negotiation, specifically getting responses in xml instead of just json
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MusiqApiSqlServer2", Version = "v1" });
@@ -48,7 +48,8 @@ namespace MusiqApiSqlServer2
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MusiqApiSqlServer2 v1"));
             }
 
-            dbContext.Database.EnsureCreated();
+            // No longer, because we use code first migration
+            //dbContext.Database.EnsureCreated();
 
             app.UseHttpsRedirection();
 
