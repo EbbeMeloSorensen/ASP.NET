@@ -70,6 +70,7 @@ namespace MusiqApiSqlServer2.Controllers
 
             song.Title = songObj.Title;
             song.Language = songObj.Language;
+            song.Duration = songObj.Duration;
             await _dbContext.SaveChangesAsync();
             return Ok("Record updated succesfully"); // Optionally, we can return a message with the code
         }

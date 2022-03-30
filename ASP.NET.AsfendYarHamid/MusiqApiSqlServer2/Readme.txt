@@ -18,7 +18,19 @@ to using migration. This is the recommended approach, when modifying the databas
 4) Try building the project, run it and send a Get request to it. Notice how you receive an error message saying that Duration is an invalid column nane
 5) Delete the dbContext.Database.EnsureCreated(); line from the Configure method of the Startup class
 6) Also delete the MusicDb database itself with Sql Server Management Studio
-7) 
+7) Install the nuget package Microsoft.EntityFramework.Core.Tools (5.0.15)
 8) Open the Package Manager Console window in Visual Studio, select MusiqApiSqlServer2 as the default project in the Package Manager
-   Console window, and enter the following at the prompt:
-   add-migration InitialMigration
+   Console window, and execute the following at the command prompt:
+     add-migration InitialMigration
+   followed by:
+     update-database
+   Then use Sql Server Management Studio for verifying that the MusicDb database has been created
+9) override the base class method OnModelCreating of the ApiDbContext class in order to "seed" the database with
+   data, when the database is created
+10) Execute the following at the command prompt in the package manager console:
+      add-migration SeedSongsTable
+    and then:
+      update-database
+    Then use Sql Server Management Studio for verifying that the Songs table of the MusicDb database has been populated
+11) Build and run the api and use postman for sending a Get request to the api
+12) Correct the Put method of the SongsController class, so it takes the new Duration property of the Song class into account

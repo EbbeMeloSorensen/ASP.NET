@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApiSqlServer", "MusicA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusiqApiSqlServer2", "MusiqApiSqlServer2\MusiqApiSqlServer2.csproj", "{CB0287D9-A868-4182-A528-43DBB9C76DBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusiqApiSqlServer3", "MusiqApiSqlServer3\MusiqApiSqlServer3.csproj", "{EB5FFFBE-32BD-41A2-9CB4-AF037F6A2F11}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicApiDotNetCore6", "MusicApiDotNetCore6\MusicApiDotNetCore6.csproj", "{10564A30-132B-44EA-B27D-530288D1EC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicApiDotNetCore6", "MusicApiDotNetCore6\MusicApiDotNetCore6.csproj", "{10564A30-132B-44EA-B27D-530288D1EC87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{CB0287D9-A868-4182-A528-43DBB9C76DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB0287D9-A868-4182-A528-43DBB9C76DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB0287D9-A868-4182-A528-43DBB9C76DBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB5FFFBE-32BD-41A2-9CB4-AF037F6A2F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB5FFFBE-32BD-41A2-9CB4-AF037F6A2F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB5FFFBE-32BD-41A2-9CB4-AF037F6A2F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB5FFFBE-32BD-41A2-9CB4-AF037F6A2F11}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10564A30-132B-44EA-B27D-530288D1EC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10564A30-132B-44EA-B27D-530288D1EC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10564A30-132B-44EA-B27D-530288D1EC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
