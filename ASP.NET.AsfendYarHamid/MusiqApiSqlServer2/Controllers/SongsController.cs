@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusiqApiSqlServer2.Data;
+using MusiqApiSqlServer2.Helpers;
 using MusiqApiSqlServer2.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -48,10 +51,42 @@ namespace MusiqApiSqlServer2.Controllers
             return Ok(song);
         }
 
+        // This was how the method looked before adding the Image property to the Song class
         // POST api/<SongsController>
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] Song song)
+        //{
+        //    await _dbContext.Songs.AddAsync(song);
+        //    await _dbContext.SaveChangesAsync();
+        //    return StatusCode(StatusCodes.Status201Created);
+        //}
+
+        // This was before we made the image uploading code reusable
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromForm] Song song)
+        //{
+        //    var connectionString =
+        //        "DefaultEndpointsProtocol=https;AccountName=ebbesmusicstorage;AccountKey=YG/sTSmTnb2OQ1OcEEMiz8iRe2RZlj6uy1jLGZVD77oQ744E6mbztkxIgQB+40ywGMoPe8r41bGy+ASt85TQFQ==;EndpointSuffix=core.windows.net";
+
+        //    var containerName = "songscover";
+
+        //    var blobContainerClient = new BlobContainerClient(connectionString, containerName);
+        //    var blobClient = blobContainerClient.GetBlobClient(song.Image.FileName);
+        //    var memoryStream = new MemoryStream();
+        //    await song.Image.CopyToAsync(memoryStream);
+        //    memoryStream.Position = 0;
+        //    await blobClient.UploadAsync(memoryStream);
+        //    song.ImageUrl = blobClient.Uri.AbsoluteUri;
+        //    await _dbContext.Songs.AddAsync(song);
+        //    await _dbContext.SaveChangesAsync();
+        //    return StatusCode(StatusCodes.Status201Created);
+        //}
+
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Song song)
+        public async Task<IActionResult> Post([FromForm] Song song)
         {
+            var imageUrl = await FileHelper.UploadImage(song.Image);
+            song.ImageUrl = imageUrl;
             await _dbContext.Songs.AddAsync(song);
             await _dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status201Created);

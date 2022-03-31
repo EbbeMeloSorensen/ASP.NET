@@ -51,3 +51,14 @@ Section 7: Content Negotiation
   stedet for at operere med EnsureCreated) at køre med Migrations over for databasen, hvor man bruger Packet Manager 
   Console viewet fra Visual Studio til at vedligeholde sin database. Man kan i øvrigt også bruge migrations til at
   populere sin database
+  
+Section 8: File Uploading Inside REST Api
+  Her starter han med at demonstrere, hvordan man oprette en såkaldt "Storage Account" under sin Azure Account. Det
+  er et storage, som man kan uploade filer (såsom billeder) til, og hvor hver fil så tildeles en url således at den 
+  kan tilgås fra en browser. Der er en lille forskel i demonstrationen i forhold til, hvordan jeg måtte gøre det
+  (31. marts 2022) idet det, der i demonstrationen hedder "Containers" (ved siden af "Tables", "File Shares" og 
+  "Queues") det på Azure hedder "Blob Service" (ved siden af "Table Service", "File Service" og "Queue Service").
+  Ellers var det det samme, man skulle gøre. Efter at have oprettet storage accounten, demonstrerer han, hvordan 
+  man fra selve Azure kan uploade en image file til storage accounten og efterfølgende få vist billedet i en browser.
+  Så går han videre med at udbygge api'en til at administrere filerne under store accounten, samtidig med at den
+  stadig administrerer anden data om sangene i databasen.
