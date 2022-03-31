@@ -62,3 +62,10 @@ Section 8: File Uploading Inside REST Api
   man fra selve Azure kan uploade en image file til storage accounten og efterfølgende få vist billedet i en browser.
   Så går han videre med at udbygge api'en til at administrere filerne under store accounten, samtidig med at den
   stadig administrerer anden data om sangene i databasen.
+  
+Section 9: Validations & Routing
+  Det er en ret kort sektion, der dels handler om, hvordan man kan sikre, at en klient ikke fodrer api'en med
+  tomme felter, og dels handler om, hvordan man med routing kan sikre, at en klient kan ramme forskellige metoder,
+  selv om de har samme signatur.
+  t
+  

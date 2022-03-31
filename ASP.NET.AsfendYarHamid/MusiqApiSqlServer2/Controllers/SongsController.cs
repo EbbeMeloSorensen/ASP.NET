@@ -51,6 +51,13 @@ namespace MusiqApiSqlServer2.Controllers
             return Ok(song);
         }
 
+        // api/songs/test/1
+        [HttpGet("[action]/{id}")]
+        public int Test(int id)
+        {
+            return id;
+        }
+
         // This was how the method looked before adding the Image property to the Song class
         // POST api/<SongsController>
         //[HttpPost]

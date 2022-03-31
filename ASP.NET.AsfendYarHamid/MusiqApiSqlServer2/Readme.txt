@@ -51,3 +51,18 @@ we are going to add to the Songs class
     THen click the Send button in postman, and verify that the record was added to the database, and furthermore that
     the image was added to the storage account on Azure.
 19) Refactor the code, so we let the Post method call a general purpose method
+
+Now, we're having fun with Validation
+
+20) Add the [Required] attribute to the properties Title, Language and Duration of the Song class. Optinally
+    add a cutom error message. Verify that you cannot violate this with postman.
+
+Now, we're having fun with Routing
+
+21) Add the 'Test' method to the SongsController class. For this method, we use routing to make sure it doesn't collide with the Get
+    method that returns a song
+22) Verify that the following 3 urls give a valid response when entered in a browser:
+      https://localhost:44375/api/songs         (returns all songs)
+      https://localhost:44375/api/songs/2       (returns a single song)
+      https://localhost:44375/api/songs/test/7  (returns the result of the test method)
+      
