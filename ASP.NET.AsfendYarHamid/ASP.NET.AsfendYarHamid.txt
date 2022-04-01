@@ -67,5 +67,13 @@ Section 9: Validations & Routing
   Det er en ret kort sektion, der dels handler om, hvordan man kan sikre, at en klient ikke fodrer api'en med
   tomme felter, og dels handler om, hvordan man med routing kan sikre, at en klient kan ramme forskellige metoder,
   selv om de har samme signatur.
-  t
+
+Section 10: Project We're Going To Build
+  Han præsenterer et lidt mere realistisk projekt, hvor vi har en backend med en lidt mere kompleks datamodel
+  bestående af entiteterne Artist, Album og Song, og derudover en smartphone frontend, hvor man kan navigere rundt
+  mellem tingene. Herfra er planen, at vi implementerer backenden til en sådan applikation ved at udvide den api,
+  som vi allerede har lavet. I denne sektion refaktorerer han blot de klasser, han har i Models-folderen og tilpasser
+  ApiDbContext-klassen. Så sletter han den eksisterende database og laver en ny ved code first migration.
   
+Section 11: Artist, Albums & Songs Controller
+  ..
