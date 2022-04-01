@@ -76,4 +76,6 @@ Section 10: Project We're Going To Build
   ApiDbContext-klassen. Så sletter han den eksisterende database og laver en ny ved code first migration.
   
 Section 11: Artist, Albums & Songs Controller
-  ..
+  Her handler det om at lave de controllers, der skal til, lige som da vi tidligere lavede en SongsController.
+  Han laver en controller for hver af entiteterne Artist, Album og Song, og så laver han en Post method for
+  hver af dem og tester det med postman

@@ -22,4 +22,11 @@ Now we will implement the controllers
    account.
 10) Add an 'API Controller - Empty' named AlbumsController to the Controllers folder and add the 
    ApiDbContext data member, the constructor, and the Post method to it.
-11) Use postman for creating an album with a Post request. Remember to add the ArtistId Key
+11) Use postman for creating an album with a Post request. Remember to add the ArtistId key
+12) Go to azure and create a new container named audiofiles under the storage account from before
+    the same way you created a container called songscover for images
+13) Create a new Helper method called UploadFile
+14) Add an 'API Controller - Empty' named SongsController to the Controllers folder and add the 
+   ApiDbContext data member, the constructor, and the Post method to it.
+15) Use postman for creating a song with a Post request. Remember to add the ArtistId key,
+    the AlbumId key, the Image key, and the AudioFile key
