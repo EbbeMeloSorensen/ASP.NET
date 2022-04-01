@@ -12,3 +12,14 @@ how it can be changed into an api that operates with a more complex data model
      update-database
 7) Use Sql Server Management Studio for verifying that the database was created. Make a database
    diagram to verify that the relations were made correctly
+
+Now we will implement the controllers
+
+8) Add an 'API Controller - Empty' named ArtistsController to the Controllers folder and add the 
+   ApiDbContext data member, the constructor, and the Post method to it.
+9) Use postman for creating an artist with a Post request. Remember to select the body tab and 
+   select 'form-data'. Verify that the artist was added to the database and to the Azure storage
+   account.
+10) Add an 'API Controller - Empty' named AlbumsController to the Controllers folder and add the 
+   ApiDbContext data member, the constructor, and the Post method to it.
+11) Use postman for creating an album with a Post request. Remember to add the ArtistId Key
