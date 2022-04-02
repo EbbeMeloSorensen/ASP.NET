@@ -147,3 +147,7 @@ Section 13: Deploying REST API to Microsoft Axure
 	   et respons med en internal server error.
 	   
 Section 14: Custom Domain and SSL Certificate
+  I denne sektion tilføjer vi "Custom domain" og implementerer SSL certificate, men først skal vi "opdatere vores app service
+  plan, fordi vores nuværende plan ikke supporterer custom domænet"
+  
+  1) Log ind på Azure, naviger til side for web api'et, f.eks. via dashboardet, og vælg 'Custom domains' i hovedmenuen
