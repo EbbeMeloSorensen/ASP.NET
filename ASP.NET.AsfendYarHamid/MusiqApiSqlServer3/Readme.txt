@@ -13,7 +13,7 @@ how it can be changed into an api that operates with a more complex data model
 7) Use Sql Server Management Studio for verifying that the database was created. Make a database
    diagram to verify that the relations were made correctly
 
-Now we will implement the controllers
+Now we will implement the post methods of the controllers
 
 8) Add an 'API Controller - Empty' named ArtistsController to the Controllers folder and add the 
    ApiDbContext data member, the constructor, and the Post method to it.
@@ -30,3 +30,30 @@ Now we will implement the controllers
    ApiDbContext data member, the constructor, and the Post method to it.
 15) Use postman for creating a song with a Post request. Remember to add the ArtistId key,
     the AlbumId key, the Image key, and the AudioFile key
+
+Now we will implement the get methods of the controllers
+
+16) Add a Get method to retrieve all artists to the ArtistsController, and test it with postman using an url
+    such as this one:
+      https://localhost:44300/api/artists
+17) Add a Get method to retrieve an individual artist including his/her songs to the ArtistsController, and 
+    test it with postman using an url such as this one:     
+      https://localhost:44300/api/artists/artistDetails?artistId=1
+18) Add a Get method to retrieve all albums to the AlbumsController, and test it with postman using an url
+    such as this one:
+      https://localhost:44300/api/albums
+19) Add a Get method to retrieve an individual album including its songs to the AlbumsController, and 
+    test it with postman using an url such as this one:     
+      https://localhost:44300/api/albums/albumDetails?albumId=1
+20) Add a Get method to retrieve all songs to the SongsController, and test it with postman using an url
+    such as this one:
+      https://localhost:44300/api/songs
+21) Add a Get method to retrieve FEATURED songs to the SongsController, and test it with postman using an url
+    such as this one:
+      https://localhost:44300/api/songs/featuredsongs
+23) Add a Get method to retrieve NEW songs to the SongsController, and test it with postman using an url
+    such as this one:
+      https://localhost:44300/api/songs/newsongs
+24) Add a Get method to search for songs, i.e. retrieve songs that fulfill some criteria to the SongsController, 
+    and test it with postman using an url such as this one:
+      https://localhost:44300/api/songs/searchsongs?query=L

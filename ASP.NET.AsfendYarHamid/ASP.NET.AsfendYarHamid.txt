@@ -78,4 +78,5 @@ Section 10: Project We're Going To Build
 Section 11: Artist, Albums & Songs Controller
   Her handler det om at lave de controllers, der skal til, lige som da vi tidligere lavede en SongsController.
   Han laver en controller for hver af entiteterne Artist, Album og Song, og så laver han en Post method for
-  hver af dem og tester det med postman
+  hver af dem og tester det med postman. Derefter laver han forskellige Get methods, som også f.eks. kan bruges
+  til at søge efter items ud fra et kriterium, der sendes som parameter.

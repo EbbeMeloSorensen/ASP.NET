@@ -48,8 +48,10 @@ we are going to add to the Songs class
 18) In postman make a Post query, but rather than using the 'raw' option under the 'Body' tab like before, we're going to 
     switch to the 'form-data' option and add Key/value pairs for Title, Language, Duration. Then add a key for the Image 
     Property where you change the type from text to file. Then you can select a file from the file system.
-    THen click the Send button in postman, and verify that the record was added to the database, and furthermore that
-    the image was added to the storage account on Azure.
+    Notice that the key/value pairs get added to the url-field after a question mark. It is even possible to write the
+    parameters directly in the url rather than using the form. Finally click the Send button in postman, and verify that 
+    the record was added to the database, and furthermore that the image was added to the storage account on Azure.
+    Well .. not really - apparently this is only when making a Get request, not for Post requests.
 19) Refactor the code, so we let the Post method call a general purpose method
 
 Now, we're having fun with Validation
