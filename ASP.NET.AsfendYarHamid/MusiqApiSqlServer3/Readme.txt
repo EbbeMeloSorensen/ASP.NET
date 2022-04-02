@@ -1,5 +1,6 @@
 ﻿This project was originally made as a copy of MusiqApiSqlServer2 with the purpose of illustrating
-how it can be changed into an api that operates with a more complex data model
+how it can be changed into an api that operates with an extended set of features and a more
+complex data model.
 
 1) Change the Songs class and add the Album class and the Artist class
 2) Add a DbSet<Artist> property and a DbSet<Album> property to the ApiDbContext class and delete
@@ -13,7 +14,7 @@ how it can be changed into an api that operates with a more complex data model
 7) Use Sql Server Management Studio for verifying that the database was created. Make a database
    diagram to verify that the relations were made correctly
 
-Now we will implement the post methods of the controllers
+Now we will implement the POST methods of the controllers
 
 8) Add an 'API Controller - Empty' named ArtistsController to the Controllers folder and add the 
    ApiDbContext data member, the constructor, and the Post method to it.
@@ -31,7 +32,7 @@ Now we will implement the post methods of the controllers
 15) Use postman for creating a song with a Post request. Remember to add the ArtistId key,
     the AlbumId key, the Image key, and the AudioFile key
 
-Now we will implement the get methods of the controllers
+Now we will implement the GET methods of the controllers
 
 16) Add a Get method to retrieve all artists to the ArtistsController, and test it with postman using an url
     such as this one:

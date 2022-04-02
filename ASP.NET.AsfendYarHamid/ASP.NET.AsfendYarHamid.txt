@@ -80,3 +80,10 @@ Section 11: Artist, Albums & Songs Controller
   Han laver en controller for hver af entiteterne Artist, Album og Song, og så laver han en Post method for
   hver af dem og tester det med postman. Derefter laver han forskellige Get methods, som også f.eks. kan bruges
   til at søge efter items ud fra et kriterium, der sendes som parameter.
+  
+Section 12: Implement Pagination in Rest Api's
+  Han introducerer konceptet paging, som handler om, at man som regel bør slice data, dvs servere det for klienten
+  i bidder, frem for at sende en stor mængde data, som brugeren ofte ikke er interesseret i alligevel. Han nævner
+  i øvrigt, at web applikationer i meget stor stil trækker på bagvedliggende api'er, især når det gælder smart phones
+  og ipads.
+  
