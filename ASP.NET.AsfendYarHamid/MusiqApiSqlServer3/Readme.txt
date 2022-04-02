@@ -58,3 +58,7 @@ Now we will implement the GET methods of the controllers
 24) Add a Get method to search for songs, i.e. retrieve songs that fulfill some criteria to the SongsController, 
     and test it with postman using an url such as this one:
       https://localhost:44300/api/songs/searchsongs?query=L
+
+Now we will implement paging
+
+25) Modify the GetAllSongs method of the SongsController

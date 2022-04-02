@@ -36,7 +36,7 @@ namespace MusiqApiSqlServer3.Controllers
 
         // api/songs
         [HttpGet]
-        public async Task<IActionResult> GetAllSongs()
+        public async Task<IActionResult> GetAllSongs(int pageNumber, int pageSize)
         {
             // Notice:
             // * We only retrieve specific fields that we need
@@ -51,7 +51,7 @@ namespace MusiqApiSqlServer3.Controllers
                     AudioUrl = song.AudioUrl
                 }).ToListAsync();
 
-            return Ok(songs);
+            return Ok(songs.Skip((pageNumber - 1) * pageSize).Take(pageSize));
         }
 
         [HttpGet("[action]")]
