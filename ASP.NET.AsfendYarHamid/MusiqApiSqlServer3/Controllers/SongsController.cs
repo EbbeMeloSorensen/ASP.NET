@@ -39,7 +39,7 @@ namespace MusiqApiSqlServer3.Controllers
         public async Task<IActionResult> GetAllSongs(int? pageNumber, int? pageSize)
         {
             var currentPageNumber = pageNumber ?? 1;
-            var currentPageSize = pageSize ?? 1;
+            var currentPageSize = pageSize ?? 5;
 
             // Notice:
             // * We only retrieve specific fields that we need

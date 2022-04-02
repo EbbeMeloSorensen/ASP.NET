@@ -90,6 +90,9 @@ Section 12: Implement Pagination in Rest Api's
   bruger man bare default værdier.
   
 Section 13: Deploying REST API to Microsoft Axure
+  Denne sektion er meget interessant og omhandler, hvordan man deployerer sit web api på Azure. Vær lige opmærksom på,
+  at der så løber omkostninger på... for AWS løb noget tilsvarende som bekendt op i flere hundrede kroner månedligt.
+
   Først skal vi lave en ny Web App på Azure
     1) Log ind på din Azure account og vælg 'Create a resource'
     2) Vælg 'Web App'
@@ -122,4 +125,25 @@ Section 13: Deploying REST API to Microsoft Axure
 	2) Kopier connection stringen fra Aure og brug den i Startup-klassen i projektet i visual Studio i stedet for den
 	   lokale connection string. Indsæt den også i appsettings.json-filen. Husk at sætte password i connection strengen
 	3) Husk også at det ikke er skide smart at comitte den fil til GitHub!! så put den ind i .gitignore
-	
+	4) Højreklik på projektet i Visual Studio og klik 'Publish...' og derefter på 'Import Profile' og så på 'Next'.
+	   Klik nu på 'Browse' og vælg filen 'musicrestfulapimelo.PublishSettings', som vi downloadede fra Azure. Klik dernæst
+	   på 'Finish'
+	5) Klik på edit-ikonet ud for Deployment Mode->Framework-dependent og lav følgende ændringer:
+	   - Expander 'Entity Framework Migrations' og check checkboksen 'Apply this migration on publish' og klik på 'Save'-knappen.
+	6) Klik nu på 'Publish'-knappen. Når deloyeringen er fuldført, kan man klikke 'Open Site' i Visual Studio for at åbne
+	   applikationen i en web browser. Bemærk, at man f.eks. skal tilføje /api/songs til urlen for faktisk at få et respons
+	   i steet for fejlbeskeden "Denne ... side blev ikke fundet". Responset er i øvrigt i første omgang er en tom liste, 
+	   da vi jo endnu ikke har populeret databasen.
+
+  Så skal vi putte lidt data i databasen fra Azure
+    1) Naviger hen til databasen på Azure, f.eks. fra dashboardet, og klik derefter på Query editor (preview) og login med
+	   de credentials, du valgte tidligere. Da jeg gjorde det, fik jeg en access denied fejl, men jeg kunne blot klikke på
+	   linket nederst for at opdatere firewall rules, og så fik jeg adgang. Når man er derinde, har man et interface, der
+	   minder om Sql Server Management Studio, hvor man kan læse indholdet af databasen, der jo som udgangspunkt er tom
+	2) Brug postman til at populere databasen, men brug basis-urlen: https://musicrestfulapimelo.azurewebsites.net/api/artists
+	   i stedete for den, du før kopierede fra swagger, såsom https://localhost:44380/api/artists.
+	   Man kan bruge query editoren på Azure til at verificere, at data gemmes i databasen. Husk at man stadig bruger samme
+	   storage account som tidligere, så man skal sikre, at de billeder, man uploader, har unikke navne - ellers får man blot
+	   et respons med en internal server error.
+	   
+Section 14: Custom Domain and SSL Certificate
