@@ -61,4 +61,8 @@ Now we will implement the GET methods of the controllers
 
 Now we will implement paging
 
-25) Modify the GetAllSongs method of the SongsController
+25) Add and use pagination parameters for the following methods:
+      - GetAllSongs in the SongsController class
+      - GetArtists in the ArtistsController class
+      - GetAlbums in the AlbumsController class
+

@@ -34,8 +34,10 @@ namespace MusiqApiSqlServer3
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MusiqApiSqlServer3", Version = "v1" });
             });
+            //services.AddDbContext<ApiDbContext>(option => option.UseSqlServer(
+            //    "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=MusicDb"));
             services.AddDbContext<ApiDbContext>(option => option.UseSqlServer(
-                "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=MusicDb"));
+                Configuration.GetConnectionString("DbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

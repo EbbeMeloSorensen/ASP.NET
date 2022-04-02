@@ -32,8 +32,11 @@ namespace MusiqApiSqlServer3.Controllers
 
         // api/albums
         [HttpGet]
-        public async Task<IActionResult> GetAlbums()
+        public async Task<IActionResult> GetAlbums(int? pageNumber, int? pageSize)
         {
+            var currentPageNumber = pageNumber ?? 1;
+            var currentPageSize = pageSize ?? 1;
+
             // Notice:
             // * We only retrieve specific fields that we need
             // * The property names of the anonymous type are used in the json response
@@ -45,7 +48,7 @@ namespace MusiqApiSqlServer3.Controllers
                     ImageUrl = album.ImageUrl
                 }).ToListAsync();
 
-            return Ok(albums);
+            return Ok(albums.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize));
         }
 
         [HttpGet("[action]")]

@@ -85,5 +85,41 @@ Section 12: Implement Pagination in Rest Api's
   Han introducerer konceptet paging, som handler om, at man som regel bør slice data, dvs servere det for klienten
   i bidder, frem for at sende en stor mængde data, som brugeren ofte ikke er interesseret i alligevel. Han nævner
   i øvrigt, at web applikationer i meget stor stil trækker på bagvedliggende api'er, især når det gælder smart phones
-  og ipads.
+  og ipads. Det er lidt af en no-brainer at implementere - det er bare et spørgsmål om at tilføje parametre for 
+  page number og page size i de GET methods, der returnerer data. Hvis klienten ikke angive nogen parametre,
+  bruger man bare default værdier.
   
+Section 13: Deploying REST API to Microsoft Axure
+  Først skal vi lave en ny Web App på Azure
+    1) Log ind på din Azure account og vælg 'Create a resource'
+    2) Vælg 'Web App'
+    3) Klik på 'Create new' under resource group, og kald den f.eks. musicapirg
+    4) Lav et unikt navn til applikationen, f.eks. musicrestfulapimelo
+    5) Lad Publish stå til Code, og vælg .Net 5 under 'Runtime stack' (det skal matche target framework for en projekt)
+    6) Lad operating system stå til Windows
+    7) Ændr evt Region, f.eks. til North Europe
+    8) Klik på den blå 'Review and Create'-knap og dernæst på den blå 'Create'-knap
+    9) Når deployeringen er færdig, får man en notifikation, hvor man passende kan vælge 'Pin to dashboard'
+    10) Naviger hen til dashboardet og klik på den kasse, der repræsenterer Web App'en (musicrestfulapimelo)
+    11) Klik på 'Get publish profile'. Herved downloades en fil, som man skal bruge for at publicere sin applikation
+        til Azure.
+  
+  Så skal vi lave en Sql Database på Azure
+    1) Klik på 'Sql databases' i hovedmenuen i Azure og derefter på den blå '+ Create'
+	2) Vælg samme resource group som før (musicapirg)
+	3) Indtast et databasenavn såsom musicdb
+	4) Klik på 'Create new' ud for Server
+	5) Indtast et unikt servernavn såsom musicapiservermelo
+	6) Vælg en lokation såsom North Europe
+	7) Lad authentication stå til SQL authentication og indtast et server admin login såsom ebbe og et password såsom cirkelkaffe
+	8) Klik på den blå 'OK'-knap og derefter på 'Review and create' og så på 'Create' (det tager i omegnen af 5 minutter)
+	9) Når deployeringen er færdig så pin til dashboard som før og naviger hen til databasen
+	10) Klik på 'Set server firewall'
+	11) Skift 'Allow Azure services and resources to access this server' fra No til Yes og klik på Save changes
+	
+  Så skal vi publicere vores web api til Azure
+    1) Naviger hen til databasen på Azure, f.eks. fra dashboardet og klik på 'Show database connection strings'
+	2) Kopier connection stringen fra Aure og brug den i Startup-klassen i projektet i visual Studio i stedet for den
+	   lokale connection string. Indsæt den også i appsettings.json-filen. Husk at sætte password i connection strengen
+	3) Husk også at det ikke er skide smart at comitte den fil til GitHub!! så put den ind i .gitignore
+	
