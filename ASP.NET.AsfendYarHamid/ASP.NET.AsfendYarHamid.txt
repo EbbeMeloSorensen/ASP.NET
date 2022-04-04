@@ -154,5 +154,5 @@ Section 14: Custom Domain and SSL Certificate
   
 Section 15: Integrate PostgreSQL in .Net Core Rest Api's
   I denne sektion refaktorerer han projektet, så det baserer sig på en postgres-database i stedet for en sql server database.
-  Han kører stadig code first lige som før
+  Han kører stadig code first lige som før.
   
