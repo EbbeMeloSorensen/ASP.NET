@@ -147,7 +147,12 @@ Section 13: Deploying REST API to Microsoft Axure
 	   et respons med en internal server error.
 	   
 Section 14: Custom Domain and SSL Certificate
-  I denne sektion tilføjer vi "Custom domain" og implementerer SSL certificate, men først skal vi "opdatere vores app service
-  plan, fordi vores nuværende plan ikke supporterer custom domænet"
+  Denne sektion handler om hvordan man tilføjer et "custom domain" og implementerer SSL certificate. Custom domain indebærer,
+  at man gør det muligt at navigere til ens api fra et almindeligt domænenavn, såsom www.badabum.com. Så vidt jeg forstod er
+  et ssl certifikat nødvendigt for at dirigere fra http hen på httsp. I hvert fald så indebærer det, at man undgår den der 
+  warning om sikkerhed, når man besøger sitet. Jeg har ikke udført øvelsen, men det lader til at være relativt lige til.
   
-  1) Log ind på Azure, naviger til side for web api'et, f.eks. via dashboardet, og vælg 'Custom domains' i hovedmenuen
+Section 15: Integrate PostgreSQL in .Net Core Rest Api's
+  I denne sektion refaktorerer han projektet, så det baserer sig på en postgres-database i stedet for en sql server database.
+  Han kører stadig code first lige som før
+  
