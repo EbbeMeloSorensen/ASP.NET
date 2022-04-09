@@ -5,6 +5,7 @@
 
 .config
 profile.arm.json
+.vscode
 
 # User-specific files
 *.rsuser
