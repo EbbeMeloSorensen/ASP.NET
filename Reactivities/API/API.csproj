@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <!-- <Nullable>enable</Nullable> fjernet, fordi vi ikke ønsker explicit at skulle angive, at strings skal være nullable -->
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
