@@ -128,4 +128,13 @@ Section 2: Walking Skeleton
    38) Tilføj klassen Seed til Persistence-projektet og ændr Program-klassens Main method,
        så den seeder databasen. Brug 'SQLITE EXPLORER' til at verificere, at databasen er blevet
        populeret.
-       
+
+  Nu skal vi til at lave en API Controller (i stil med den, der allerede er blevet lavet af project 
+  templaten), så vi kan retrieve data fra databasen.
+
+   39) Tilføj en klasse ved navn BaseApiController til Controllers folderen i API-projektet.
+   40) Tilføj en klasse ved navn ActivitiesController, som nedarver fra BaseApiController og implementer
+       en constructor samt de 2 methods GetActivities og GetActivity
+   41) Test det fra postman ved at lave følgende get request:
+         http://localhost:5000/api/activities
+         
