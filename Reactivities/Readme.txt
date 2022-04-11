@@ -122,5 +122,10 @@ Section 2: Walking Skeleton
    36) Naviger til API-folderen i terminal-vinduet, og eksekver: dotnet watch run
        Bemærk, at den så laver filen reactivities.db, som er en Sqlite database.
    37) Åbn Command palette i VS Code ved at trykke Ctrl+Shift+P og skrive sqlite: open database
-       og så vælge reactivities-databasen (Så popper der en 'SQLITE EXPLORER tab op i EXPLORER)
+       og så vælge reactivities-databasen. Så popper der en 'SQLITE EXPLORER' tab op i Explorer
+       viewet, hvor man kan højreklikke på tabellen og f.eks. vælge 'Show database' (den er tom
+       indtil videre)
+   38) Tilføj klassen Seed til Persistence-projektet og ændr Program-klassens Main method,
+       så den seeder databasen. Brug 'SQLITE EXPLORER' til at verificere, at databasen er blevet
+       populeret.
        
