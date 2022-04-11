@@ -93,3 +93,34 @@ Section 2: Walking Skeleton
        man kan bruge toolet)
    34) Eksekver nu følgende i terminalvinduet for at lave en migrering:
          dotnet ef migrations add InitialCreate -p Persistence -s API
+   35) Lav ændringer i Program-klassens Main metode, så den ser således ud:
+
+        public static void Main(string[] args)
+        {
+            // Original from project template
+            //CreateHostBuilder(args).Build().Run();
+
+            // Changes made by instructor (for creating the database from the migration)
+            var host = CreateHostBuilder(args).Build();
+            using var scope = host.Services.CreateScope();
+            var services = scope.ServiceProvider;
+
+            try
+            {
+                var context = services.GetRequiredService<DataContext>();
+                context.Database.Migrate();
+            } 
+            catch(Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occured during migration");
+            }
+
+            host.Run();
+        }
+
+   36) Naviger til API-folderen i terminal-vinduet, og eksekver: dotnet watch run
+       Bemærk, at den så laver filen reactivities.db, som er en Sqlite database.
+   37) Åbn Command palette i VS Code ved at trykke Ctrl+Shift+P og skrive sqlite: open database
+       og så vælge reactivities-databasen (Så popper der en 'SQLITE EXPLORER tab op i EXPLORER)
+       
