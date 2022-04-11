@@ -5,34 +5,34 @@ Enrolled: April 2022
 
 Summary:
   Et kursus om hvordan man laver og publicerer en (web) applikation med .Net Core React (og node)
-  og f.eks. tester den med postman. Man bruger også TypeScript (som er et superset af JavaScript)
+  og f.eks. tester den med postman. Man bruger ogsï¿½ TypeScript (som er et superset af JavaScript)
 
-Rød tråd:
+Rï¿½d trï¿½d:
 
 Section: Introduction 
-  Han siger, at .Net Core og React er meget populære værktøjer til at arbejde med web development og
-  anbefaler i øvrigt varmt IDE'en VS Code som alternativ til f.eks. Visual Studio. Der er f.eks. en
+  Han siger, at .Net Core og React er meget populï¿½re vï¿½rktï¿½jer til at arbejde med web development og
+  anbefaler i ï¿½vrigt varmt IDE'en VS Code som alternativ til f.eks. Visual Studio. Der er f.eks. en
   dotnet cli, som kan bruges til at administrere solutions og projekter fra command linen (det er
-  temmelig cool, da det så kan gøres fra Linux og i øvrigt er ret smidigt i forhold til at gøre det
-  samme med Visual Studio). Han præsenterer et antal vs code plugins, hvoraf nogle er nødvendige for
-  at køre projektet, mens andre er nice:
+  temmelig cool, da det sï¿½ kan gï¿½res fra Linux og i ï¿½vrigt er ret smidigt i forhold til at gï¿½re det
+  samme med Visual Studio). Han prï¿½senterer et antal vs code plugins, hvoraf nogle er nï¿½dvendige for
+  at kï¿½re projektet, mens andre er nice:
     * C# (powered by OmniSharp) (Dev tools for .Net)
     * C# Extensions (JosKreativ)
     * Nuget Gallery
-    * Bracket Pair Colorizer (nice - måske)
-    * Material Icon Theme (Viser ikoner i 'Explorer' viewet, så det bliver lidt mere lækkert at se på)
-    * SQLite (Til at køre noget lokal test med databaser)
+    * Bracket Pair Colorizer (nice - mï¿½ske)
+    * Material Icon Theme (Viser ikoner i 'Explorer' viewet, sï¿½ det bliver lidt mere lï¿½kkert at se pï¿½)
+    * SQLite (Til at kï¿½re noget lokal test med databaser)
 
 Section 2: Walking Skeleton
   Han forklarer, hvad et walking skeleton er. Det minder om MVP (Minimum Viable Product), men er
-  endnu mere tyndt, derved at det fokuserer på bare at binde teknologierne sammen end-to-end.
-  Han forklarer i øvrigt, at vi vil lave det i henhold til "Clean Architecture"-principperne,
+  endnu mere tyndt, derved at det fokuserer pï¿½ bare at binde teknologierne sammen end-to-end.
+  Han forklarer i ï¿½vrigt, at vi vil lave det i henhold til "Clean Architecture"-principperne,
   som minder om onion, derved at domain er det centrale.
 
-  Kør følgende ved en command prompt:
+  Kï¿½r fï¿½lgende ved en command prompt:
 
     1) dotnet --info (til lige at sikre, at det overhovedet er installeret)
-    2) mkdir Reactivities (bare navnet på vores projekt og specifikt den solution, vi laver umiddelbart efter)
+    2) mkdir Reactivities (bare navnet pï¿½ vores projekt og specifikt den solution, vi laver umiddelbart efter)
     3) cd .\Reactivities
     4) dotnet new sln (til at lave en ny solution)
     5) dotnet new webapi -n API (lav et nyt .Net Core 6.0 API projekt. -n angiver, at vi vil oprette
@@ -40,13 +40,13 @@ Section 2: Walking Skeleton
     6) dotnet new classlib -n Application (lav et class library)
     7) dotnet new classlib -n Persistence
     8) dotnet new classlib -n Domain
-    9) dotnet sln add API (tilføj pågældende projekt til solutionen)
+    9) dotnet sln add API (tilfï¿½j pï¿½gï¿½ldende projekt til solutionen)
    10) dotnet sln add Application
    11) dotnet sln add Persistence
    12) dotnet sln add Domain
    13) dotnet sln list (kontrol af at solutionen indeholder de projekter, det skal)
    14) cd .\API
-   15) dotnet add reference ..\Application (tilføj en reference fra et projekt til et andet)
+   15) dotnet add reference ..\Application (tilfï¿½j en reference fra et projekt til et andet)
    16) cd..
    17) cd .\Application
    18) dotnet add reference ..\Persistence
@@ -55,14 +55,41 @@ Section 2: Walking Skeleton
    21) cd .\Persistence
    22) dotnet add reference ..\Domain
 
-  Han anbefaler i øvrigt at tilføje de 2 patterns **/bin og **/obj til File->Preferences->Settings
-  for at undgå at de vises i Explorer viewet.
+  Han anbefaler i ï¿½vrigt at tilfï¿½je de 2 patterns **/bin og **/obj til File->Preferences->Settings
+  for at undgï¿½ at de vises i Explorer viewet.
 
-   23) Launch VS Code og åbn den folder, som solutionen ligger i (Reactivities)
-   24) Vis terminalvinduet i VS Code ved at trykke CTRL+æ (hint i main vinduet)
-   25) Ekserkver følgende i terminalvinduet: dotnet watch run (man kan også bare skrive dotnet run, 
-       men han anbefaler det første). Test det i swagger og også i postman ved at skrive:
+   23) Launch VS Code og ï¿½bn den folder, som solutionen ligger i (Reactivities)
+   24) Vis terminalvinduet i VS Code ved at trykke CTRL+ï¿½ (hint i main vinduet)
+   25) Ekserkver fï¿½lgende i terminalvinduet: dotnet watch run (man kan ogsï¿½ bare skrive dotnet run, 
+       men han anbefaler det fï¿½rste). Test det i swagger og ogsï¿½ i postman ved at skrive:
          http://localhost:5000/weatherforecast og sende det som en Get query
 
-  Han nævner i øvrigt, at det er smart at bruge såkaldte postman collections til at teste sine api'er
-  og demonstrerer, hvordan man kan importere sådan en collecion (fra en resourcefil fra kurset).
+  Han nï¿½vner i ï¿½vrigt, at det er smart at bruge sï¿½kaldte postman collections til at teste sine api'er
+  og demonstrerer, hvordan man kan importere sï¿½dan en collecion (fra en resourcefil fra kurset).
+
+  Nu begyndre vi sÃ¥ at bygge vores egen domÃ¦nemodel i stedet for det der WeatherForecast eksempel,
+  der fÃ¸lger med project templaten. Derudover bygger vi persisteringsdelen under anvendelse af
+  Entity Framework Core, specifikt med support for Sqlite i dette eksempel.
+
+   26) TilfÃ¸j klassen Activity under Domain-projektet
+   27) Tryk Ctrl+Shift+P for at Ã¥bne command palette, og vÃ¦lg Open Nuget Gallery
+   28) Installer nuget pakken Microsoft.EntityFrameworkCore.Sqlite for Persistence-projektet
+   29) TilfÃ¸j klassen DataContext under Persistence-projektet
+   30) Ã†ndr IConfiguration propertyen i Startup-klassen til en data member og initialiser den i constructoren
+       (det re vist bare instruktÃ¸rens stil)
+   31) TilfÃ¸j fÃ¸lgende linie nederst i Startup-klassens ConfigureServices-metode:
+         services.AddDbContext<DataContext>(opt => opt.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+   32) TilfÃ¸j denne sektion nederst i filen appsettings.Development.json:
+          "ConnectionStrings": {
+            "DefaultConnection": "Data source=reactivities.db"
+          }
+   33) Ã…bn terminal-vinduet i VS Code og eksekver fÃ¸lgende for at checke, om vi har installeret toolet
+       til at foretage code first migrations:
+         dotnet tool list --global
+       (toolet hedder dotnet-ef. Hvis ikke det er der, sÃ¥ gÃ¥ ind pÃ¥ nuget.org, find pakken dotnet-ef og
+       kopier den linie, der skal eksekveres i vs codes terminal vindue or at installere toolet, alla:
+       dotnet tool install --global dotnet-ef --version 6.0.1. KÃ¸r bagefter igen dotnet tool list --global
+       for at sikre, at pakken nu er blevet installeret. Man kan ogsÃ¥ kÃ¸re dotnet ef -h for at se, hvordan 
+       man kan bruge toolet)
+   34) Eksekver nu fÃ¸lgende i terminalvinduet for at lave en migrering:
+         dotnet ef migrations add InitialCreate -p Persistence -s API
