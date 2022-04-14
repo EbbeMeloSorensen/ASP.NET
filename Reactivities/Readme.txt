@@ -138,3 +138,7 @@ Section 2: Walking Skeleton
    41) Test det fra postman ved at lave følgende get request:
          http://localhost:5000/api/activities
          
+  Han nævner, at man kan lave en gitignore fil ved at køre følgende i terminalen:
+    dotnet new gitignore
+  ..det er noget lettere end at gøre det sådan som du plejer
+  Han nævner til sidst, at man bør tilføje linien appsettings.json til gitignore filen
