@@ -16,3 +16,7 @@ ind fra Solution Explorer og ind i index-html filen:
   * styles.css          (ens egen hjemmelavede style)
   * jquery-3.1.1.min.js ("minimaliseret version" af jQuery - det er også den han f.eks. bruger i Hero-Manager projektet)
   * app.js              (ens egen hjemmelavede java script kode)
+
+Iagttagelser:
+* Man kan bruge jQuery, som er et populært javascript library fra javascript kode. Disse konstruktioner er karakteriseret ved at de starter med $ (dollartegn).
+* Hvis man tildeler et id til et tag i en html-fil, kan man hive fat i dem fra javascript kode under anvendelse af jQuery, sædvanligvis for at manipulere dem.
