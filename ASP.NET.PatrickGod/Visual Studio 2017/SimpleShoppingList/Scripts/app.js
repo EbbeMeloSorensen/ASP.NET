@@ -81,6 +81,7 @@ function checkItem(index) {
 }
 
 function getShoppingListById(id) {
+    /*
     console.info(id);
     currentList.name = "Mock Shopping List";
     currentList.items = [
@@ -91,6 +92,21 @@ function getShoppingListById(id) {
 
     showShoppingList();
     drawItems();
+    */
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "api/ShoppingList/" + id,
+        success: function (result) {
+            currentList = result;
+            showShoppingList();
+            drawItems();
+        },
+        error: function() {
+            console.error("Something bad happened! :(");
+        }
+    });
 }
 
 $(document).ready(function () {
