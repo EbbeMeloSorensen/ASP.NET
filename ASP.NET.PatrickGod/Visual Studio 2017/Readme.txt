@@ -20,3 +20,5 @@ ind fra Solution Explorer og ind i index-html filen:
 Iagttagelser:
 * Man kan bruge jQuery, som er et populært javascript library fra javascript kode. Disse konstruktioner er karakteriseret ved at de starter med $ (dollartegn).
 * Hvis man tildeler et id til et tag i en html-fil, kan man hive fat i dem fra javascript kode under anvendelse af jQuery, sædvanligvis for at manipulere dem.
+* Når web applikationen kører, kan man i Chrome højreklikke på et element og vælge Inspect. Så kan man f.eks. se de styles, der gør pt sig gældende, f.eks. 
+  hvilke views der er synlige og hvilke der er hidden

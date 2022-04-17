@@ -2,13 +2,17 @@
 var currentList = {};
 
 function createShoppingList() {
-    // Her bruger vi jQuery til at findeu ud af, hvad der pt står i et bestemt input element i index.html-filen
+    // Her bruger vi jQuery til at findeu ud af, hvad der pt står i et bestemt input element i index.html-filen.
+    // "We say to jQuery: Hey, I want to access a DOM element with a specific id" (and get the value of that element (an input field in this case))
     currentList.name = $("#shoppingListName").val();
 
     // Todo: Web Service Call
+    // (for now, we just pretend to call a web service)
 
-    // for now, we just pretend to call a web service
-    $("#shoppingListTitle").html(currentList.name);
+    $("#shoppingListTitle").html(currentList.name); // Change the html of an element with a specific id (a header element in this case)
+    $("#shoppingListItems").empty(); // Clear the list
+    $("#createListDiv").hide(); // Hide this view
+    $("#shoppingListDiv").show(); // Show this view
 }
 
 $(document).ready(function () {
