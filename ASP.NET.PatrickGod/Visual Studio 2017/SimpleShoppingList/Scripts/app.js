@@ -20,6 +20,17 @@ function showShoppingList() {
     $("#shoppingListItems").empty(); // Clear the list
     $("#createListDiv").hide(); // Hide this view
     $("#shoppingListDiv").show(); // Show this view
+
+    // Set input focus to the shopping list name input element
+    $("#newItemName").focus();
+
+    // Listen to every keypress in that input element
+    $("#newItemName").keyup(function (event) {
+        if (event.keyCode == 13) {
+            addItem();
+        }
+    });
+
 }
 
 function addItem() {
@@ -29,6 +40,7 @@ function addItem() {
     console.info(currentList); // Test
 
     drawItems();
+    $("#newItemName").val(""); // Clear the input field
 }
 
 // General purpose function for drawing list of items
@@ -83,6 +95,17 @@ function getShoppingListById(id) {
 
 $(document).ready(function () {
     console.info("ready");
+
+    // Set input focus to the shopping list name input element
+    $("#shoppingListName").focus();
+
+    // Listen to every keypress in that input element
+    $("#shoppingListName").keyup(function(event) {
+        if (event.keyCode == 13) {
+            createShoppingList();
+        }
+    });
+
     var pageUrl = window.location.href;
     var idIndex = pageUrl.indexOf("?id=");
     if (idIndex != -1) {
