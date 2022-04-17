@@ -34,15 +34,28 @@ function drawItems() {
     //         Det er for at angive, at det er såkaldte jQuery objekter.
     //         Jeg mistænker at det bare er en konvention, da det tilsyneladende også virker, hvis man
     //         udelader dollartegnet.
+    // Bemærk: Vi tilføjer button click event handlers undervejs, altså referencer til handler funktionerne
+    //         inklusive de parametre, der sendes med.
     var $list = $("#shoppingListItems").empty();
 
     for (var i = 0; i < currentList.items.length; i++) {
         var currentItem = currentList.items[i];
         var $li = $("<li>").html(currentItem.name).attr("id", "item_" + i);
-        var $deleteBtn = $("<button>D</button>").appendTo($li);
-        var $checkBtn = $("<button>C</button>").appendTo($li);
+        var $deleteBtn = $("<button onclick='deleteItem(" + i + ")'>D</button>").appendTo($li);
+        var $checkBtn = $("<button onclick='checkItem (" + i + ")'>C</button>").appendTo($li);
         $li.appendTo($list);
     }
+}
+
+function deleteItem(index) {
+    // Remove the item from the global list, and redraw the list
+    currentList.items.splice(index, 1);
+    drawItems();
+}
+
+function checkItem(index) {
+    // Add a css class to the element in question, using a style from our styles.css file
+    $("#item_" + index).addClass("checked");
 }
 
 $(document).ready(function () {
