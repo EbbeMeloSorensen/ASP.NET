@@ -6,6 +6,9 @@ function createShoppingList() {
     // "We say to jQuery: Hey, I want to access a DOM element with a specific id" (and get the value of that element (an input field in this case))
     currentList.name = $("#shoppingListName").val();
 
+    // Reset the global currentList variable
+    currentList.items = new Array();
+
     // Todo: Web Service Call
     // (for now, we just pretend to call a web service)
 
@@ -13,6 +16,33 @@ function createShoppingList() {
     $("#shoppingListItems").empty(); // Clear the list
     $("#createListDiv").hide(); // Hide this view
     $("#shoppingListDiv").show(); // Show this view
+}
+
+function addItem() {
+    var newItem = {}; // Create a new object
+    newItem.name = $("#newItemName").val(); // Gie the object a name that we retrieve form another dom element
+    currentList.items.push(newItem); // Add it to the list
+    console.info(currentList); // Test
+
+    drawItems();
+}
+
+// General purpose function for drawing list of items
+function drawItems() {
+    // Tøm listen i viewet, og hold fast i et handle til det
+    // Bemærk: Vi bruger et foranstillet dollartegn, når vi erklærer et antal objekter.
+    //         Det er for at angive, at det er såkaldte jQuery objekter.
+    //         Jeg mistænker at det bare er en konvention, da det tilsyneladende også virker, hvis man
+    //         udelader dollartegnet.
+    var $list = $("#shoppingListItems").empty();
+
+    for (var i = 0; i < currentList.items.length; i++) {
+        var currentItem = currentList.items[i];
+        var $li = $("<li>").html(currentItem.name).attr("id", "item_" + i);
+        var $deleteBtn = $("<button>D</button>").appendTo($li);
+        var $checkBtn = $("<button>C</button>").appendTo($li);
+        $li.appendTo($list);
+    }
 }
 
 $(document).ready(function () {

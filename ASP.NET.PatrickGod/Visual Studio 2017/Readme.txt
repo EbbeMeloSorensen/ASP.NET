@@ -22,3 +22,5 @@ Iagttagelser:
 * Hvis man tildeler et id til et tag i en html-fil, kan man hive fat i dem fra javascript kode under anvendelse af jQuery, sædvanligvis for at manipulere dem.
 * Når web applikationen kører, kan man i Chrome højreklikke på et element og vælge Inspect. Så kan man f.eks. se de styles, der gør pt sig gældende, f.eks. 
   hvilke views der er synlige og hvilke der er hidden
+* Når man tilgår members i java script-filen, skal man være opmærksom på at skrive propertyens navn med SMÅT,
+  f.eks. newItem.name og currentList.items.length, hvor name og length skal skrives med småt. Man får ikke umiddelbart nogen fejlbesked - det virker bare ikke.
