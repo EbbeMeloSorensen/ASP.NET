@@ -12,6 +12,10 @@ function createShoppingList() {
     // Todo: Web Service Call
     // (for now, we just pretend to call a web service)
 
+    showShoppingList();
+}
+
+function showShoppingList() {
     $("#shoppingListTitle").html(currentList.name); // Change the html of an element with a specific id (a header element in this case)
     $("#shoppingListItems").empty(); // Clear the list
     $("#createListDiv").hide(); // Hide this view
@@ -64,8 +68,30 @@ function checkItem(index) {
     }
 }
 
+function getShoppingListById(id) {
+    console.info(id);
+    currentList.name = "Mock Shopping List";
+    currentList.items = [
+        { name: "Milk" },
+        { name: "Cornflakes" },
+        { name: "Strawberries" }
+    ];
+
+    showShoppingList();
+    drawItems();
+}
+
 $(document).ready(function () {
+    console.info("ready");
+    var pageUrl = window.location.href;
+    var idIndex = pageUrl.indexOf("?id=");
+    if (idIndex != -1) {
+        getShoppingListById(pageUrl.substring(idIndex + 4));
+    }
+
+    /*
     console.info("before call to web api");
+
     $.ajax({
         url: "http://api.exchangeratesapi.io/v1/latest?access_key=3d5861a43985fbc3778eda7aaa2fefa9&symbols=USD,INR",
         type: "GET",
@@ -75,4 +101,5 @@ $(document).ready(function () {
         }
     });
     console.info("after call to web api");
+    */
 });
