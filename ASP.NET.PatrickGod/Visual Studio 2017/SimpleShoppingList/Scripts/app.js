@@ -54,8 +54,14 @@ function deleteItem(index) {
 }
 
 function checkItem(index) {
-    // Add a css class to the element in question, using a style from our styles.css file
-    $("#item_" + index).addClass("checked");
+    if ($("#item_" + index).hasClass("checked")) {
+        console.info("removing checked class from element");
+        $("#item_" + index).removeClass("checked");
+    } else {
+        // Add a css class to the element in question, using a style from our styles.css file
+        console.info("adding checked class to element");
+        $("#item_" + index).addClass("checked");
+    }
 }
 
 $(document).ready(function () {
