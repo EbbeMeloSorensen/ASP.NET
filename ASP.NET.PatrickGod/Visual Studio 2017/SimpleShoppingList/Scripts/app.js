@@ -81,7 +81,7 @@ function drawItems() {
     for (var i = 0; i < currentList.items.length; i++) {
         var currentItem = currentList.items[i];
         var $li = $("<li>").html(currentItem.name).attr("id", "item_" + i);
-        var $deleteBtn = $("<button onclick='deleteItem(" + i + ")'>D</button>").appendTo($li);
+        var $deleteBtn = $("<button onclick='deleteItem(" + currentItem.id + ")'>D</button>").appendTo($li);
         var $checkBtn = $("<button onclick='checkItem (" + currentItem.id + ")'>C</button>").appendTo($li);
 
         if (currentItem.checked) {
@@ -92,10 +92,23 @@ function drawItems() {
     }
 }
 
-function deleteItem(index) {
+function deleteItem(itemId) {
     // Remove the item from the global list, and redraw the list
-    currentList.items.splice(index, 1);
-    drawItems();
+    //currentList.items.splice(index, 1);
+    //drawItems();
+
+    $.ajax({
+        type: "DELETE",
+        dataType: "json",
+        url: "api/Item/" + itemId,
+        success: function (result) {
+            currentList = result;
+            drawItems();
+        },
+        error: function () {
+            console.error("Something bad happened! :(");
+        }
+    });
 }
 
 function checkItem(itemId) {
