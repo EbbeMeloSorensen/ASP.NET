@@ -9,10 +9,19 @@ function createShoppingList() {
     // Reset the global currentList variable
     currentList.items = new Array();
 
-    // Todo: Web Service Call
-    // (for now, we just pretend to call a web service)
-
-    showShoppingList();
+    // Web Service Call
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "api/ShoppingList/",
+        data: currentList,
+        success: function (result) {
+            showShoppingList();
+        },
+        error: function () {
+            console.error("Something bad happened! :(");
+        }
+    });
 }
 
 function showShoppingList() {
@@ -36,11 +45,26 @@ function showShoppingList() {
 function addItem() {
     var newItem = {}; // Create a new object
     newItem.name = $("#newItemName").val(); // Gie the object a name that we retrieve form another dom element
-    currentList.items.push(newItem); // Add it to the list
-    console.info(currentList); // Test
+    newItem.shoppingListId = currentList.id;
 
-    drawItems();
-    $("#newItemName").val(""); // Clear the input field
+    // When we mocked it
+    //currentList.items.push(newItem); // Add it to the list
+    //console.info(currentList); // Test
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "api/Item/",
+        data: newItem,
+        success: function (result) {
+            currentList = result;
+            drawItems();
+            $("#newItemName").val(""); // Clear the input field
+        },
+        error: function () {
+            console.error("Something bad happened! :(");
+        }
+    });
 }
 
 // General purpose function for drawing list of items
@@ -58,7 +82,12 @@ function drawItems() {
         var currentItem = currentList.items[i];
         var $li = $("<li>").html(currentItem.name).attr("id", "item_" + i);
         var $deleteBtn = $("<button onclick='deleteItem(" + i + ")'>D</button>").appendTo($li);
-        var $checkBtn = $("<button onclick='checkItem (" + i + ")'>C</button>").appendTo($li);
+        var $checkBtn = $("<button onclick='checkItem (" + currentItem.id + ")'>C</button>").appendTo($li);
+
+        if (currentItem.checked) {
+            $li.addClass("checked");
+        }
+
         $li.appendTo($list);
     }
 }
@@ -69,7 +98,9 @@ function deleteItem(index) {
     drawItems();
 }
 
-function checkItem(index) {
+function checkItem(itemId) {
+    // When we mocked it
+    /*
     if ($("#item_" + index).hasClass("checked")) {
         console.info("removing checked class from element");
         $("#item_" + index).removeClass("checked");
@@ -78,6 +109,34 @@ function checkItem(index) {
         console.info("adding checked class to element");
         $("#item_" + index).addClass("checked");
     }
+    */
+
+    //var item = currentList.items[index];
+    //item.checked = !item.checked;
+
+    var changedItem = {};
+
+    for (var i = 0; i < currentList.items.length; i++) {
+        if (currentList.items[i].id == itemId) {
+            changedItem = currentList.items[i];
+        }
+    }
+
+    changedItem.checked = !changedItem.checked;
+
+    $.ajax({
+        type: "PUT",
+        dataType: "json",
+        url: "api/Item/" + itemId,
+        data: changedItem,
+        success: function (result) {
+            currentList = result;
+            drawItems();
+        },
+        error: function () {
+            console.error("Something bad happened! :(");
+        }
+    });
 }
 
 function getShoppingListById(id) {

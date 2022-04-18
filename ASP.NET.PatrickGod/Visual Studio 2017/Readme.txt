@@ -24,3 +24,5 @@ Iagttagelser:
   hvilke views der er synlige og hvilke der er hidden
 * Når man tilgår members i java script-filen, skal man være opmærksom på at skrive propertyens navn med SMÅT,
   f.eks. newItem.name og currentList.items.length, hvor name og length skal skrives med småt. Man får ikke umiddelbart nogen fejlbesked - det virker bare ikke.
+* Man skal bygge sit projekt. Det lader til at gælde, når projektet omfatter en backend med C# kode
+* Han nævner i lektion 32 om HTTP PUT, at staten bibeholdes på trods af at han reloader, fordi vi er i "same session". Det forstår jeg ikke helt..

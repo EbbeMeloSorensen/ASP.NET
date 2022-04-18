@@ -18,6 +18,7 @@ namespace SimpleShoppingList
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Kommentar fra Patrick: "You will need to make changes here, when your application grows (when you need more than basic crud)"
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
