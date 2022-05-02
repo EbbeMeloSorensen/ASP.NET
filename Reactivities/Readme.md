@@ -145,7 +145,7 @@ Han nævner til sidst, at man bør tilføje linien appsettings.json til gitignor
 
 ### Section 3: Walking Skeleton Part 2 - Client
 
-Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation. Han nævner, at vi kommer til at bruge et værktøj, der hedder Axios, til at sende Http Requests til backenden.
+Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation. Han nævner, at vi kommer til at bruge et værktøj, der hedder **Axios**, til at sende Http Requests til backenden.
 
 1. Åbn en command prompt og naviger hen til samme sted, som Reactivities-solutionen ligger i.
 
