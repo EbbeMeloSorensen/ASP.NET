@@ -145,8 +145,23 @@ Han nævner til sidst, at man bør tilføje linien appsettings.json til gitignor
 
 ### Section 3: Walking Skeleton Part 2 - Client
 
-Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation.
+Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation. Han nævner, at vi kommer til at bruge et værktøj, der hedder Axios, til at sende Http Requests til backenden.
 
 1. Åbn en command prompt og naviger hen til samme sted, som Reactivities-solutionen ligger i.
-2. 
+
+2. Eksekver følgende: npx create-react-app client-app --use-npm --template typescript
+
+3. Run the app by typing this at the prompt:
+
+   ​	cd client-app
+
+   ​	npm start
+
+   (nu skulle den så gerne åbne den sædvanlige browser-side med React-logoet)
+
+4. Muligvis: Fjern det der React.StrictMode fra filen index.tsx. Han siger, at det kan give problemer, men muligvis ikke i nyere versioner af React.
+
+   Han nævner, at en af årsagerne til at React er populært er, at den er hurtig. Dette skyldes i vidt omfang, at den gør brug af et koncept med at bruge en "**virtual DOM** that contains a representation of the actual DOM that the browser uses". Det er hurtigere end værktøjer som f.eks. jQuery, der opdaterer DOM'en direkte. Det indebærer vist nok også, at den kun ændrer de dele af DOM'en, der faktisk skal ændres. Han siger, at React gør brug af "one-way binding" mod DOM'en, i modsætning til f.eks. Angular, der bruger two-way binding. Han nævner i øvrigt, at React "bare er et javascript library" - det er ikke er framework! Han introducerer **React components**, som er en self-contained konstruktion, der indeholder både js, HTML og css. En React component kan have en **state**, som kan sendes "som properties til child components". Han introducerer begrebet **React Hook**, som er "a function that lets us hook into the React states and life cycle features from function components".
+
+5. ..
 
