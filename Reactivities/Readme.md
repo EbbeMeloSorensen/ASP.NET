@@ -147,5 +147,6 @@ Han nævner til sidst, at man bør tilføje linien appsettings.json til gitignor
 
 Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation.
 
-1. 
+1. Åbn en command prompt og naviger hen til samme sted, som Reactivities-solutionen ligger i.
+2. 
 
