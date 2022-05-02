@@ -23,7 +23,7 @@ Han siger, at .Net Core og React er meget populære værktøjer til at arbejde m
 * Material Icon Theme (viser ikoner i 'Explorer' viewet, så det bliver lidt mere lækkert at se på)
 * SQLite (Til at køre noget lokal test med databaser)
 
-### Section 2: Walking Skeleton
+### Section 2: Walking Skeleton Part 1 - API
 
 Han forklarer, hvad et walking skeleton er. Det minder om MVP (Minimum Viable Product), men er endnu mere tyndt, derved at det fokuserer på bare at binde teknologierne sammen end-to-end. Han forklarer i øvrigt, at vi vil lave det i henhold til "Clean Architecture"-principperne, som minder om onion, derved at domain er det centrale.
 
@@ -142,3 +142,10 @@ Nu begynder vi så at bygge vores egen domænemodel i stedet for det der Weather
 Han nævner, at man kan lave en gitignore fil ved at køre følgende i terminalen: dotnet new gitignore
   ..det er noget lettere end at gøre det sådan som du plejer
 Han nævner til sidst, at man bør tilføje linien appsettings.json til gitignore filen
+
+### Section 3: Walking Skeleton Part 2 - Client
+
+Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I den forbindelse laver vi en React applikation.
+
+1. 
+
