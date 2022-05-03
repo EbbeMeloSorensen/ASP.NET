@@ -23,7 +23,8 @@ const duck2 = {
 }
 
 // To ensure consistency among objects, better derive from a common interface, like below
-interface Cat {
+// (the export keyword lets us use the Dog interface in other files in our application)
+export interface Cat {
     name: string;
     numLegs: number;
     makeSound: (sound: string) => void;
@@ -35,9 +36,14 @@ const cat1: Cat = {
     makeSound: (sound: any) => console.log(sound)
 }
 
+const cat2: Cat = {
+    name: 'gylle',
+    numLegs: 4,
+    makeSound: (sound: any) => console.log(sound)
+}
+
 // For this interface, the makeSound method is optional (because of the question mark)
-// The export keyword lets us use the Dog interface in other files in our application
-export interface Dog {
+interface Dog {
     name: string;
     numLegs: number;
     makeSound?: (sound: string) => void;
@@ -61,4 +67,4 @@ const dog2: Dog = {
 dog2.makeSound!('vuf');
 
 // Create an array of dogs for use by other files in our application
-export const dogs = [dog1, dog2]
+export const cats = [cat1, cat2]
