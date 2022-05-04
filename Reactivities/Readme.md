@@ -172,5 +172,7 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
    Nu skal vi så til at bruge **Semantic UI React** til at style vores applikation, så den ser pænere ud.
 
-9. ..
+9. Naviger client-app-folderen i et konsolvindue i VS Code, og eksekver følgende: npm install semantic-ui-react semantic-ui-css
+
+10. I filen index.tsx - 
 
