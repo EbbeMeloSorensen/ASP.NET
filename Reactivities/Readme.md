@@ -90,11 +90,6 @@ Nu begynder vi så at bygge vores egen domænemodel i stedet for det der Weather
          dotnet ef migrations add InitialCreate -p Persistence -s API
    35. Lav ændringer i Program-klassens Main metode, så den ser således ud:
 
-        public static void Main(string[] args)
-        {
-            // Original from project template
-            //CreateHostBuilder(args).Build().Run();
-
            public static void Main(string[] args)
            {
              // Original from project template
@@ -161,7 +156,17 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
 4. Muligvis: Fjern det der React.StrictMode fra filen index.tsx. Han siger, at det kan give problemer, men muligvis ikke i nyere versioner af React.
 
-   Han nævner, at en af årsagerne til at React er populært er, at den er hurtig. Dette skyldes i vidt omfang, at den gør brug af et koncept med at bruge en "**virtual DOM** that contains a representation of the actual DOM that the browser uses". Det er hurtigere end værktøjer som f.eks. jQuery, der opdaterer DOM'en direkte. Det indebærer vist nok også, at den kun ændrer de dele af DOM'en, der faktisk skal ændres. Han siger, at React gør brug af "one-way binding" mod DOM'en, i modsætning til f.eks. Angular, der bruger two-way binding. Han nævner i øvrigt, at React "bare er et javascript library" - det er ikke er framework! Han introducerer **React components**, som er en self-contained konstruktion, der indeholder både js, HTML og css. En React component kan have en **state**, som kan sendes "som properties til child components". Han introducerer begrebet **React Hook**, som er "a function that lets us hook into the React states and life cycle features from function components".
+   Han nævner, at en af årsagerne til at React er populært er, at den er hurtig. Dette skyldes i vidt omfang, at den gør brug af et koncept med at bruge en "**virtual DOM** that contains a representation of the actual DOM that the browser uses". Det er hurtigere end værktøjer som f.eks. jQuery, der opdaterer DOM'en direkte. Det indebærer vist nok også, at den kun ændrer de dele af DOM'en, der faktisk skal ændres. Han siger, at React gør brug af "one-way binding" mod DOM'en, i modsætning til f.eks. Angular, der bruger two-way binding. Han nævner i øvrigt, at React "bare er et javascript library" - det er ikke er framework! Han introducerer **React components**, som er en self-contained konstruktion, der indeholder både js, HTML og css. En React component kan have en **state**, som kan sendes "som properties til child components". Han introducerer begrebet **React Hook**, som er "a function that lets us hook into the React states and life cycle features from function components". Han nævner også, at det kan være gavnligt at tilføje **React Dev Tools** pluginet til Chrome.
 
-5. ..
+   Nu skal vi så til at populere brugregrænsefladen med data, som vi henter fra API'et. I den forbindelse anbefaler han at bruge pakken **Axios**.
+
+5. Kør api'en fra VS Code ved at åbne et konsolvindue, navigere til API-folderen og skrive: dotnet watch run. Det bringer det sædvanlige swagger vindue op.
+
+6. Start et ekstra konsolvindue i VS Code, naviger til client-app folderen, og eksekver: npm install axios
+
+7. Ændr filen App.tsx ved at importere axios og tilføje 2 React hooks: **useState** og **useEffect** , som beskrevet i kurset. Han siger, at den selv laver det nødvendige import statement, men det lader ikke til at være tilfældet.
+
+   Nu kan man så eksekvere applikationen, men API-kaldet fejler pga noget **CORS policy**, som vi så fixer i næste trin
+
+8. Lav ændringer i filen Startup.cs under API-projektet, som anvist i kurset.
 
