@@ -170,3 +170,7 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
 8. Lav ændringer i filen Startup.cs under API-projektet, som anvist i kurset.
 
+   Nu skal vi så til at bruge **Semantic UI React** til at style vores applikation, så den ser pænere ud.
+
+9. ..
+
