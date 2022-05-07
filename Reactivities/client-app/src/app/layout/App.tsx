@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-//import { cats } from './demo';
-//import CatItem from './CatItem';
 import axios from 'axios';
 
 function App() {
@@ -20,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Activities fetched from api:</h1>
         <ul>
           {activities.map((activity: any) => (
             <li key={activity.id}>
