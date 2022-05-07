@@ -137,7 +137,7 @@ Nu begynder vi så at bygge vores egen domænemodel i stedet for det der Weather
            }
        
 
-   36) Naviger til API-folderen i terminal-vinduet, og eksekver: dotnet watch run
+   36) Naviger til API-folderen i terminal-vinduet, og eksekver: **dotnet watch run**
        Bemærk, at den så laver filen reactivities.db, som er en Sqlite database.
    37) Åbn Command palette i VS Code ved at trykke Ctrl+Shift+P og skrive sqlite: open database
        og så vælge reactivities-databasen. Så popper der en 'SQLITE EXPLORER' tab op i Explorer
@@ -172,7 +172,7 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
    ​	cd client-app
 
-   ​	npm start
+   ​	**npm start**
 
    (nu skulle den så gerne åbne den sædvanlige browser-side med React-logoet)
 
@@ -184,7 +184,7 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
 5. Kør api'en fra VS Code ved at åbne et konsolvindue, navigere til API-folderen og skrive: dotnet watch run. Det bringer det sædvanlige swagger vindue op.
 
-6. Start et ekstra konsolvindue i VS Code, naviger til client-app folderen, og eksekver: npm install axios
+6. Start et *ekstra* konsolvindue i VS Code, naviger til client-app folderen, og eksekver: npm install axios
 
 7. Ændr filen App.tsx ved at importere axios og tilføje 2 React hooks: **useState** og **useEffect** , som beskrevet i kurset. Han siger, at den selv laver det nødvendige import statement, men det lader ikke til at være tilfældet.
 
@@ -196,9 +196,15 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
 9. Naviger client-app-folderen i et konsolvindue i VS Code, og eksekver følgende: npm install semantic-ui-react semantic-ui-css
 
-10. I filen index.tsx - 
+   Så får vi så en masse forbandede fejl, der går på at der er rod med afhængighederne, lidt ligesom nuget-helvede. Han siger godt nok at det er let at gå til og hvad fanden ved jeg, men så må det jo være fordi jeg er snotdum. Jeg har i hvert fald ikke kunnet få det til at virke. Jeg har googlet lidt, og det lader til at have noget at gøre med, at Semantic.UI ikke er kompatibelt med React 18. Jeg har indtil videre ladet det ligge - også fordi det mest drejer sig om at få det til at se nogenlunde pænt ud. Se i øvrigt appendixet.
 
-### Annex A: Procedure for setting up a React project and adding Semantic UI for styling
+### Section 4: Creating a CRUD application using the CQRS + Mediator pattern
+
+I denne sektion går vi videre fra bare at kunne se vores items i React-applikationen til også at kunne køre Create/Read/Update/Delete på dem. Han indleder med, at vi gerne vil gøre det i henhold til "Clean Architecture"-principperne, som minder meget om onion-architecture-principperne. Interessant nok nævner han, at vi ville kunne gøre det med Repository patternet, men han siger, at vi hellere vil gøre det med de 2 patterns: Mediator og CQRS, som står for  Command Query Responsibility Segregation.
+
+1) Åbn nuget gallery i VS code, find MediatR.Extensions.Microsoft.DependencyInjection og installer pakken for Application-projektet.
+
+### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
 1) Open a command prompt and exectute the following:
 
