@@ -203,13 +203,24 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 I denne sektion går vi videre fra bare at kunne se vores items i React-applikationen til også at kunne køre Create/Read/Update/Delete på dem. Han indleder med, at vi gerne vil gøre det i henhold til "Clean Architecture"-principperne, som minder meget om onion-architecture-principperne. Interessant nok nævner han, at vi ville kunne gøre det med Repository patternet, men han siger, at vi hellere vil gøre det med de 2 patterns: Mediator og CQRS, som står for  Command Query Responsibility Segregation.
 
 1) Åbn nuget gallery i VS code, find MediatR.Extensions.Microsoft.DependencyInjection og installer pakken for Application-projektet.
+
 2) Lav en ny subfolder ved navn Activities for Application-projektet og lav en ny klasse ved navn List i folderen. Lav i det hele taget de refaktoreringer af API-projektet, som anvises i kurset. Slut af med at teste, at det stadig virker at hente alle activity items fra postman.
+
 3) Lav den refaktorering, han viser i kurset, hvor der skubbes noget fra ActivitiesControlleren til dens basisklasse BaseApiController. Check at man stadig kan hente alle activities med postman
+
 4) Lav en handler for at hente et individuelt item, som anvist i kurset, og verificer at det virker med postman
+
 5) Lav en handler for at lave et nyt item, som anvist i kurset, og verificer at det virker med postman. Bemærk, at han bruger nogle interessante features fra postman.
+
 6) Lav en handler for at ændre et eksisterende item, som anvist i kurset, og verificer, at det virker med postman.
+
 7) Refaktorer edit-handleren, så den bruger auto-mapping med nuget pakken AutoMapper.Extensions.Microsoft.DependencyInjection, som anvist i kurset. Verificer, at det virker med postman.
-8) Lav en handler for at slette et eksisterende item, som anvist i kurset, og verificer, at det virker med postman. 
+
+8) Lav en handler for at slette et eksisterende item, som anvist i kurset, og verificer, at det virker med postman.
+
+   Han demonstrerer, hvordan man kan gøre brug af cancellation tokens, så man fra klienten kan cancellere en long running operation. Han sletter det imidlertid umiddelbart efter demonstrationen.
+
+9) Til sidst i sektion 4 demonstrerer han, hvordan man anvender debuggeren i VS Code.
 
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
