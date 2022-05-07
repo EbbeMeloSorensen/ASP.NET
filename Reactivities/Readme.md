@@ -204,7 +204,12 @@ I denne sektion går vi videre fra bare at kunne se vores items i React-applikat
 
 1) Åbn nuget gallery i VS code, find MediatR.Extensions.Microsoft.DependencyInjection og installer pakken for Application-projektet.
 2) Lav en ny subfolder ved navn Activities for Application-projektet og lav en ny klasse ved navn List i folderen. Lav i det hele taget de refaktoreringer af API-projektet, som anvises i kurset. Slut af med at teste, at det stadig virker at hente alle activity items fra postman.
-3) Lav den refaktorering, han viser i kurset, hvor der skubbes noget fra ActivitiesControlleren til dens basisklasse BaseApiController.
+3) Lav den refaktorering, han viser i kurset, hvor der skubbes noget fra ActivitiesControlleren til dens basisklasse BaseApiController. Check at man stadig kan hente alle activities med postman
+4) Lav en handler for at hente et individuelt item, som anvist i kurset, og verificer at det virker med postman
+5) Lav en handler for at lave et nyt item, som anvist i kurset, og verificer at det virker med postman. Bemærk, at han bruger nogle interessante features fra postman.
+6) Lav en handler for at ændre et eksisterende item, som anvist i kurset, og verificer, at det virker med postman.
+7) Refaktorer edit-handleren, så den bruger auto-mapping med nuget pakken AutoMapper.Extensions.Microsoft.DependencyInjection, som anvist i kurset. Verificer, at det virker med postman.
+8) Lav en handler for at slette et eksisterende item, som anvist i kurset, og verificer, at det virker med postman. 
 
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
