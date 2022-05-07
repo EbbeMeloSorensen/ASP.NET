@@ -203,6 +203,8 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 I denne sektion går vi videre fra bare at kunne se vores items i React-applikationen til også at kunne køre Create/Read/Update/Delete på dem. Han indleder med, at vi gerne vil gøre det i henhold til "Clean Architecture"-principperne, som minder meget om onion-architecture-principperne. Interessant nok nævner han, at vi ville kunne gøre det med Repository patternet, men han siger, at vi hellere vil gøre det med de 2 patterns: Mediator og CQRS, som står for  Command Query Responsibility Segregation.
 
 1) Åbn nuget gallery i VS code, find MediatR.Extensions.Microsoft.DependencyInjection og installer pakken for Application-projektet.
+2) Lav en ny subfolder ved navn Activities for Application-projektet og lav en ny klasse ved navn List i folderen. Lav i det hele taget de refaktoreringer af API-projektet, som anvises i kurset. Slut af med at teste, at det stadig virker at hente alle activity items fra postman.
+3) Lav den refaktorering, han viser i kurset, hvor der skubbes noget fra ActivitiesControlleren til dens basisklasse BaseApiController.
 
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
