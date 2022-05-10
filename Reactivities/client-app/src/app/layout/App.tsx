@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { List, ListHeader } from 'semantic-ui-react';
 
 function App() {
   // Initially make an empty list
@@ -14,17 +15,15 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Activities fetched from api:</h1>
-        <ul>
-          {activities.map((activity: any) => (
-            <li key={activity.id}>
-              {activity.title}
-            </li>
-          ))}
-        </ul>
-      </header>
+    <div>
+      <ListHeader as='h2' content='Reactivities'/>
+      <List>
+      {activities.map((activity: any) => (
+          <List.Item key={activity.id}>
+            {activity.title}
+          </List.Item>
+        ))}
+      </List>
     </div>
   );
 }
