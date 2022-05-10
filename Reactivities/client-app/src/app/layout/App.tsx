@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { List, ListHeader } from 'semantic-ui-react';
+import { Container, List, ListHeader } from 'semantic-ui-react';
 import { Activity } from '../models/activity';
+import NavBar from './NavBar';
 
 function App() {
   // Initially make an empty list
@@ -16,16 +17,18 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <ListHeader as='h2' content='Reactivities'/>
-      <List>
-      {activities.map(activity => (
-          <List.Item key={activity.id}>
-            {activity.title}
-          </List.Item>
-        ))}
-      </List>
-    </div>
+    <>
+      <NavBar />
+      <Container style={{marginTop: '2em'}}>
+        <List>
+          {activities.map(activity => (
+              <List.Item key={activity.id}>
+                {activity.title}
+              </List.Item>
+          ))}
+        </List>
+      </Container>
+    </>
   );
 }
 
