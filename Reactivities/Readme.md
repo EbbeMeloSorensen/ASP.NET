@@ -227,6 +227,7 @@ I denne sektion går vi videre fra bare at kunne se vores items i React-applikat
 Indtil videre kan React apien kun vise activities, som hvis den var en viewer. Nu går vi videre med at lave den til en manager med support for create/read/update/delete.
 
 1) Foretag refaktoreringer for at lave en hensigtsmæssig folderstruktur for React-projektet client-app, som vist i kurset.
+2) 
 
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
