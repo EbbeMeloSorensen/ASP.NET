@@ -257,4 +257,12 @@ Indtil videre kan React apien kun vise activities, som hvis den var en viewer. N
 
    ![image-20220506061905690](C:\Git\GitHub\ASP.NET\Reactivities\Assets\semantic_ui_errors.png)
 
+   Updte 12-05-2022: Det er lykkedes at lave en React applikation med node.js, og hvor der også er Semantic UI styling, som virker, i hvert fald fsa den der Menu og en button. Det ligger i C:\Temp\fun_with_semantic\dummy2, hvor den mest interessante fil er package.json-filen. Det er gjort ved at følge workaroundet beskrevet her: https://github.com/Semantic-Org/Semantic-UI-React/issues/4129 hvor man IKKE kalder npm install semantic osv men derimod bare skriver React-afhængighederne direkte ind i package.json-filen og efterfølgende kalder npm install --legacy-peer-deps. Koden skal også rettes lidt til, så det ligner Neil Cummings' kode. Ellers får man fejlbeskeder, når man kører det.
+   
+   Todo:
+   
+   * Skriv dette rent, så du har et rent appendix og måske også en cookbook et passende sted
+   * Prøv at publicere en TypeScript/React web applikation til NordicWay
+   * Prøv også at publicere den til AWS (dockerized)
+   
    .
