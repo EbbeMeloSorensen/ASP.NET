@@ -8,6 +8,8 @@ interface Props {
 
 export default function ActivityList({activities}: Props) {
     return (
+        <Button negative></Button>
+        /*
         <Segment>
             <Item.Group divided>
                 {activities.map(activity => (
@@ -28,5 +30,6 @@ export default function ActivityList({activities}: Props) {
                 ))}
             </Item.Group>
         </Segment>
+        */
     )
 }

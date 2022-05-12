@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { Container, List, ListHeader } from 'semantic-ui-react';
+import { Container, List, ListList } from 'semantic-ui-react';
 import { Activity } from '../models/activity';
 import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
@@ -20,6 +20,15 @@ function App() {
   return (
     <>
       <NavBar />
+      <div>
+        <ListList>
+          {activities.map((activity: any) => (
+            <List.Item key={activity.id}>
+              {activity.title}
+            </List.Item>
+          ))}
+        </ListList>
+      </div>
       <Container style={{marginTop: '2em'}}>
         <ActivityDashboard activities={activities} />
       </Container>

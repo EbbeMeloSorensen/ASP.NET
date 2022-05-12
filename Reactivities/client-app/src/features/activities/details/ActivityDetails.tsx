@@ -8,6 +8,8 @@ interface Props {
 
 export default function ActivityDetails({activity}: Props) {
     return (
+        <Button>HELVEDE</Button>
+        /*
         <Card fluid>
             <Image src={`/assets/categoryImages/${activity.category}.jpg`} />
             <Card.Content>
@@ -26,5 +28,6 @@ export default function ActivityDetails({activity}: Props) {
                 </Button.Group>
             </Card.Content>
         </Card>
+        */
     )
 }
