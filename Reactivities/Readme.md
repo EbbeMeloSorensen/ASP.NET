@@ -231,38 +231,86 @@ Indtil videre kan React apien kun vise activities, som hvis den var en viewer. N
 
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
-1) Open a command prompt and exectute the following:
+Der er bøvl med at gøre det på den måde, som Neil anviser, hvilket vist har noget at gøre med at React 18 ikke er kompatibel med Semantic UI React endnu. Det manifesterer sig f.eks. i fejlbeskeden: "JSX element type 'X' does not have any construct or call signatures", hvis man prøver at tilføje visse Semantic UI elementer til sin brugergrænseflade. Der bliver snakket om problemet i forummet for Udemy-kurset, og en studerende ved navn Brian G har anvist en procedure, der tilsyneladende virker, og som er gengivet her med lidt ekstra detaljer:
 
-   node --version	(must be 8.10 or bigger. Neil Cummings uses version 15.5.1)
+1. Open a command prompt and exectute the following:
 
-   npm --version	(must be 5.6 or bigger. Neil Cummings uses version 7.3.0)
+   `node --version`	(must be 8.10 or bigger. Neil Cummings uses version 15.5.1)
 
-2) Execute the following at the command prompt at a path where you want to create the React project
+   `npm --version`	(must be 5.6 or bigger. Neil Cummings uses version 7.3.0)
 
-   npx create-react-app client-app --use-npm --template typescript
+2. Execute the following at the command prompt at a path where you want to create the React project
 
-3) Launch the web application by executing the following at the command prompt:
+   `npx create-react-app client-app --use-npm --template typescript`
+
+3. delete the package-lock.json file, and update the package.json file to have:
+
+   `"react": "^17.0.2",`
+
+   `"react-dom": "^17.0.2",`
+
+4. Delete the node-modules folder (might not be necessary, but at least it illustrates that you don't depend on it at this point)
+
+5. Navigate to the client-app folder and execute `npm install`
+
+6. Again delete the package-lock.json file
+
+7. Execute the following:
+
+   `npm install @testing-library/react@11.2.2`
+
+   `npm install @types/react@17.0.1 @types/react-dom@17.0.1`
+
+   `npm install semantic-ui-react`
+
+8. update your index.tsx, e.g. by means of VS Code:
+
+   ```
+   import React from 'react';
+   import ReactDOM from 'react-dom';
+   import './index.css';
+   import App from './App';
+   import reportWebVitals from './reportWebVitals';
+   
+   ReactDOM.render(
+   	<App />,
+   	document.getElementById('root')
+   );
+   
+   // If you want to start measuring performance in your app, pass a function
+   // to log results (for example: reportWebVitals(console.log))
+   // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+   reportWebVitals();
+   ```
+
+9. Update your index.html by including this in the head section:
+
+   ```
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+   ```
+
+10. Launch the web application by executing the following at the command prompt:
 
    npm start
 
    Now you should see the usual React application with the spinning logo
 
-4) Stop the web application? not sure..
+11. Update your App.tsx like this to verify that the Semantic UI React setup is correct:
 
-5) Execute the following at the command prompt:
+    ```
+    import React from 'react';
+    import './App.css';
+    import { Header } from 'semantic-ui-react';
+    
+    function App() {
+      return (
+        <div>
+          <Header as='h2' content='It works :-)'/>
+        </div>
+      );
+    }
+    
+    export default App;
+    ```
 
-   npm install semantic-ui-react semantic-ui-css
-
-   Nu siger han så, at vi får nogle warnings, men vi får faktisk et bunch af errors, som vist nedenfor:
-
-   ![image-20220506061905690](C:\Git\GitHub\ASP.NET\Reactivities\Assets\semantic_ui_errors.png)
-
-   Updte 12-05-2022: Det er lykkedes at lave en React applikation med node.js, og hvor der også er Semantic UI styling, som virker, i hvert fald fsa den der Menu og en button. Det ligger i C:\Temp\fun_with_semantic\dummy2, hvor den mest interessante fil er package.json-filen. Det er gjort ved at følge workaroundet beskrevet her: https://github.com/Semantic-Org/Semantic-UI-React/issues/4129 hvor man IKKE kalder npm install semantic osv men derimod bare skriver React-afhængighederne direkte ind i package.json-filen og efterfølgende kalder npm install --legacy-peer-deps. Koden skal også rettes lidt til, så det ligner Neil Cummings' kode. Ellers får man fejlbeskeder, når man kører det.
-   
-   Todo:
-   
-   * Skriv dette rent, så du har et rent appendix og måske også en cookbook et passende sted
-   * Prøv at publicere en TypeScript/React web applikation til NordicWay
-   * Prøv også at publicere den til AWS (dockerized)
-   
-   .
+    Now you should see the text "It works :-)" displayed on a white background
