@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Header, List } from 'semantic-ui-react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Container, Header, List } from 'semantic-ui-react';
 import axios from 'axios';
 import { Activity } from '../models/activity';
+import NavBar from './NavBar';
 
 function App() {
   // Teorien for disse forklares fint i lesson 27
@@ -14,8 +15,9 @@ function App() {
   }, []) // Denne tomme liste er der for at undgå en uendelig løkke, som Neil beskriver
 
   return (
-    <div>
-      <Header as='h2' icon='users' content='Reactivities'/>
+    <>
+      <NavBar />
+      <Container style={{marginTop: '7em'}}>
         <List>
         {activities.map(activity => (
             <List.Item key={activity.id}>
@@ -23,7 +25,8 @@ function App() {
             </List.Item>
           ))}
         </List>
-    </div>
+      </Container>
+    </>
   );
 }
 
