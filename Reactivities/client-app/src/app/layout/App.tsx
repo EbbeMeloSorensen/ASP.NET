@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'semantic-ui-react';
-import axios from 'axios';
 import { Activity } from '../models/activity';
 import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import {v4 as uuid} from 'uuid';
+import agent from '../api/agent';
 
 function App() {
   // Teorien for disse forklares fint i lesson 27
@@ -13,8 +13,8 @@ function App() {
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    axios.get<Activity[]>('http://localhost:5000/api/activities').then(response => {
-      setActivities(response.data);
+    agent.Activities.list().then(response => {
+      setActivities(response);
     })
   }, []) // Denne tomme liste er der for at undgå en uendelig løkke, som Neil beskriver
 
