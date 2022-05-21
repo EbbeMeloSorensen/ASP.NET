@@ -14,16 +14,15 @@ export default class ActivityStore {
         makeAutoObservable(this)
     }
 
-    get activitiesByDate() {
+    get activitiesByTitle() {
         return Array.from(this.activityRegistry.values()).sort((a, b) => 
-            Date.parse(a.date) - Date.parse(b.date));
+            (a.title > b.title) ? 1 : -1);
     }
 
     loadActivities = async () => {
         try {
             const activities = await agent.Activities.list();
             activities.forEach(activity => {
-                activity.date = activity.date.split('T')[0];
                 this.activityRegistry.set(activity.id, activity);
             })
             this.setLoadingInitial(false);
