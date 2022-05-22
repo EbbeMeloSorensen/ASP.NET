@@ -3,29 +3,29 @@ import React, { SyntheticEvent, useState } from 'react';
 import { Button, Item, Segment } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 
-export default observer(function ActivityList() {
-    const {activityStore} = useStore();
-    const {deleteActivity, activitiesByTitle, loading} = activityStore;
+export default observer(function TaskList() {
+    const {taskStore} = useStore();
+    const {deleteTask, tasksByTitle, loading} = taskStore;
     const [target, setTarget] = useState('');
 
-    function handleActivityDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+    function handleTaskDelete(e: SyntheticEvent<HTMLButtonElement>, id: number) {
         setTarget(e.currentTarget.name);
-        deleteActivity(id);
+        deleteTask(id);
     }
 
     return (
         <Segment>
             <Item.Group divided>
-                {activitiesByTitle.map(activity => (
-                    <Item key={activity.id}>
+                {tasksByTitle.map(task => (
+                    <Item key={task.id}>
                         <Item.Content>
-                            <Item.Header as='a'>{activity.title}</Item.Header>
+                            <Item.Header as='a'>{task.title}: {task.description}</Item.Header>
                             <Item.Extra>
-                                <Button onClick={() => activityStore.selectActivity(activity.id)} floated='right' content='View' color='blue' />
+                                <Button onClick={() => taskStore.selectTask(task.id)} floated='right' content='View' color='blue' />
                                 <Button 
-                                    name={activity.id}
-                                    loading={loading && target === activity.id} 
-                                    onClick={(e) => handleActivityDelete(e, activity.id)} 
+                                    name={task.id}
+                                    loading={loading && target === task.id.toString()} // not sure this casting works..
+                                    onClick={(e) => handleTaskDelete(e, task.id)} 
                                     floated='right' 
                                     content='Delete' 
                                     color='red' />

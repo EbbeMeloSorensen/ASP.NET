@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { Activity } from '../models/activity';
+import { Response, Task } from '../models/activity';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -7,7 +7,8 @@ const sleep = (delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+//axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'https://www.melo.dk/my-web-apis/task-manager/v1';
 
 axios.interceptors.response.use(async response => {
     try {
@@ -28,16 +29,17 @@ const requests = {
     del: <T> (url: string) => axios.delete<T>(url).then(responseBody),
 }
 
-const Activities = {
-    list: () => requests.get<Activity[]>('/activities'),
-    details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-    create: (activity: Activity) => axios.post<void>('/activities', activity),
-    update: (activity: Activity) => axios.put<void>(`/activities/${activity.id}`, activity),
-    delete: (id: string) => axios.delete<void>(`/activities/${id}`)
+const Tasks = {
+    //list: () => requests.get<Activity[]>('/tasks'),
+    list: () => requests.get<Response>('/tasks'),
+    //details: (id: string) => requests.get<Activity>(`/tasks/${id}`),
+    create: (task: Task) => axios.post<void>('/tasks', task),
+    update: (task: Task) => axios.put<void>(`/tasks/${task.id}`, task),
+    delete: (id: number) => axios.delete<void>(`/tasks/${id}`)
 }
 
 const agent = {
-    Activities
+    Tasks
 }
 
 export default agent;

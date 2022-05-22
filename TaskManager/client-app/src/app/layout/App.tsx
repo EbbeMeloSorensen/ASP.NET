@@ -1,25 +1,25 @@
 import React, { useEffect } from 'react';
 import { Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
-import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
+import TaskDashboard from '../../features/activities/dashboard/TaskDashboard';
 import LoadingComponent from './LoadingComponents';
 import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
 
 function App() {
-  const {activityStore} = useStore();
+  const {taskStore} = useStore();
   
   useEffect(() => {
-    activityStore.loadActivities();
-  }, [activityStore])
+    taskStore.loadActivities();
+  }, [taskStore])
     
-  if (activityStore.loadingInitial) return <LoadingComponent content='Loading app' />
+  if (taskStore.loadingInitial) return <LoadingComponent content='Loading app' />
 
   return (
     <>
       <NavBar />
       <Container style={{marginTop: '7em'}}>
-        <ActivityDashboard />
+        <TaskDashboard />
       </Container>
     </>
   );

@@ -1,11 +1,11 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { Activity } from "../models/activity";
+import { Task } from "../models/activity";
 import {v4 as uuid} from 'uuid';
 
-export default class ActivityStore {
-    activityRegistry = new Map<string, Activity>();
-    selectedActivity: Activity | undefined = undefined;
+export default class TaskStore {
+    taskRegistry = new Map<number, Task>();
+    selectedTask: Task | undefined = undefined;
     editMode = false;
     loading = false;
     loadingInitial = true;
@@ -14,17 +14,28 @@ export default class ActivityStore {
         makeAutoObservable(this)
     }
 
-    get activitiesByTitle() {
-        return Array.from(this.activityRegistry.values()).sort((a, b) => 
+    get tasksByTitle() {
+        return Array.from(this.taskRegistry.values()).sort((a, b) => 
             (a.title > b.title) ? 1 : -1);
     }
 
     loadActivities = async () => {
         try {
-            const activities = await agent.Activities.list();
-            activities.forEach(activity => {
-                this.activityRegistry.set(activity.id, activity);
+            const response = await agent.Tasks.list();
+
+            // verification
+            console.log(response);
+            console.log(response.statusCode);
+            console.log(response.success);
+            console.log(response.messages);
+            console.log(response.data);
+            console.log(response.data.rows_returned);
+            console.log(response.data.tasks[0]);
+
+            response.data.tasks.forEach(task => {
+                this.taskRegistry.set(task.id, task);
             })
+
             this.setLoadingInitial(false);
         } catch(error) {
             console.log(error);
@@ -36,16 +47,16 @@ export default class ActivityStore {
         this.loadingInitial = state;
     }
 
-    selectActivity = (id: string) => {
-        this.selectedActivity = this.activityRegistry.get(id);
+    selectTask = (id: number) => {
+        this.selectedTask = this.taskRegistry.get(id);
     }
 
-    cancelSelectedActivity = () => {
-        this.selectedActivity = undefined;
+    cancelSelectedTask = () => {
+        this.selectedTask = undefined;
     }
 
-    openForm = (id?: string) => {
-        id ? this.selectActivity(id) : this.cancelSelectedActivity();
+    openForm = (id?: number) => {
+        id ? this.selectTask(id) : this.cancelSelectedTask();
         this.editMode = true;
     }
 
@@ -53,6 +64,7 @@ export default class ActivityStore {
         this.editMode = false;
     }
 
+    /*
     createActivity = async (activity: Activity) => {
         this.loading = true;
         activity.id = uuid();
@@ -89,14 +101,15 @@ export default class ActivityStore {
             })
         }
     }
+    */
 
-    deleteActivity = async (id: string) => {
+    deleteTask = async (id: number) => {
         this.loading = true;
         try {
-            await agent.Activities.delete(id);
+            await agent.Tasks.delete(id);
             runInAction(() => {
-                this.activityRegistry.delete(id);
-                if (this.selectedActivity?.id === id) this.cancelSelectedActivity();
+                this.taskRegistry.delete(id);
+                if (this.selectedTask?.id === id) this.cancelSelectedTask();
                 this.loading = false;
             })
         } catch(error) {

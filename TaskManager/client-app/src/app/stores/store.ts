@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react"
-import ActivityStore from "./activityStore"
+import TaskStore from "./taskStore"
 
 interface Store {
-    activityStore: ActivityStore
+    taskStore: TaskStore
 }
 
 export const store: Store = {
-    activityStore: new ActivityStore()
+    taskStore: new TaskStore()
 }
 
 export const StoreContext = createContext(store);
