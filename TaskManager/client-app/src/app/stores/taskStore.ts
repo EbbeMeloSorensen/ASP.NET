@@ -64,15 +64,16 @@ export default class TaskStore {
         this.editMode = false;
     }
 
-    /*
-    createActivity = async (activity: Activity) => {
+    createTask = async (task: Task) => {
         this.loading = true;
-        activity.id = uuid();
+        //task.id = 57;
         try {
-            await agent.Activities.create(activity);
+            await agent.Tasks.create(task);
             runInAction(() => {
-                this.activityRegistry.set(activity.id, activity);
-                this.selectedActivity = activity;
+                console.log("Created task..");
+                console.log(task.id);
+                this.taskRegistry.set(task.id, task);
+                this.selectedTask = task;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -84,6 +85,7 @@ export default class TaskStore {
         }
     }
 
+    /*
     updateActivity = async (activity: Activity) => {
         this.loading = true;
         try {
