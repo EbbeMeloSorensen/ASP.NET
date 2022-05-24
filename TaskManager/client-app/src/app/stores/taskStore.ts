@@ -102,14 +102,13 @@ export default class TaskStore {
         }
     }
 
-    /*
-    updateActivity = async (activity: Activity) => {
+    updateTask = async (task: Task) => {
         this.loading = true;
         try {
-            await agent.Activities.update(activity);
+            await agent.Tasks.update(task);
             runInAction(() => {
-                this.activityRegistry.set(activity.id, activity);
-                this.selectedActivity = activity;
+                this.taskRegistry.set(task.id, task);
+                this.selectedTask = task;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -120,7 +119,6 @@ export default class TaskStore {
             })
         }
     }
-    */
 
     deleteTask = async (id: number) => {
         this.loading = true;

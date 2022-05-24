@@ -13,7 +13,8 @@ axios.defaults.baseURL = 'https://www.melo.dk/my-web-apis/task-manager/v1'; // w
 
 axios.interceptors.response.use(async response => {
     try {
-        await sleep(1000);
+        //await sleep(1000); // I guess we don't need this..
+        await sleep(10);
         return response;
     } catch (error) {
         console.log(error);
@@ -26,16 +27,14 @@ const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 const requests = {
     get: <T> (url: string) => axios.get<T>(url).then(responseBody),
     post: <T> (url: string, body: {}) => axios.post<T>(url, body).then(responseBody),
-    put: <T> (url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
+    patch: <T> (url: string, body: {}) => axios.patch<T>(url, body).then(responseBody),
     del: <T> (url: string) => axios.delete<T>(url).then(responseBody),
 }
 
 const Tasks = {
-    //list: () => requests.get<Activity[]>('/tasks'),
     list: () => requests.get<TaskResponse>('/tasks'),
-    //details: (id: string) => requests.get<Activity>(`/tasks/${id}`),
     create: (task: Task) => axios.post<TaskResponse>('/tasks', task),
-    update: (task: Task) => axios.put<void>(`/tasks/${task.id}`, task),
+    update: (task: Task) => axios.patch<void>(`/tasks/${task.id}`, task),
     delete: (id: number) => axios.delete<void>(`/tasks/${id}`),
     createuser: (user: User) => axios.post<UserResponse>('/users', user)
 }

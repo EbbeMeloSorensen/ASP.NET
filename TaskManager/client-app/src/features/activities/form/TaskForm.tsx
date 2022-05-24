@@ -5,7 +5,7 @@ import { useStore } from "../../../app/stores/store";
 
 export default observer(function ActivityForm() {
     const {taskStore} = useStore();
-    const {selectedTask, closeForm, createTask, /*updateActivity, */loading} = taskStore;
+    const {selectedTask, closeForm, createTask, updateTask, loading} = taskStore;
 
     const initialState = selectedTask ?? {
         id: 0,
@@ -18,8 +18,7 @@ export default observer(function ActivityForm() {
     const [task, setTask] = useState(initialState);
 
     function handleSubmit() {
-        //task.id ? updateActivity(activity) : createActivity(activity); // outcommented until I get Create Task to work
-        createTask(task);
+        task.id === 0 ? createTask(task) : updateTask(task);
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
