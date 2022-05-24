@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { Task } from "../models/activity";
-import {v4 as uuid} from 'uuid';
+import { Task } from "../models/task";
+//import { User } from "../models/user";
 
 export default class TaskStore {
     taskRegistry = new Map<number, Task>();
@@ -24,13 +24,13 @@ export default class TaskStore {
             const response = await agent.Tasks.list();
 
             // verification
-            console.log(response);
-            console.log(response.statusCode);
-            console.log(response.success);
-            console.log(response.messages);
-            console.log(response.data);
-            console.log(response.data.rows_returned);
-            console.log(response.data.tasks[0]);
+            //console.log(response);
+            //console.log(response.statusCode);
+            //console.log(response.success);
+            //console.log(response.messages);
+            //console.log(response.data);
+            //console.log(response.data.rows_returned);
+            //console.log(response.data.tasks[0]);
 
             response.data.tasks.forEach(task => {
                 this.taskRegistry.set(task.id, task);
@@ -66,13 +66,30 @@ export default class TaskStore {
 
     createTask = async (task: Task) => {
         this.loading = true;
-        //task.id = 57;
         try {
-            await agent.Tasks.create(task);
+            // Vi intercepter lige for at se om vi kan oprette en bruger
+            // (det kan vi godt efter at have lavet det der preflight cors noget, som han beskriver i lesson 33)
+            /*
+            let user = {
+                fullname: "Fætter Højben",
+                username: "Højben",
+                password: "password123"
+            } as User
+
+            const response = await agent.Tasks.createuser(user);
             runInAction(() => {
-                console.log("Created task..");
-                console.log(task.id);
-                this.taskRegistry.set(task.id, task);
+                console.log(`Created user with id: ${response.data.data.user_id}`);
+                this.editMode = false;
+                this.loading = false;
+            })
+            */
+
+            const response = await agent.Tasks.create(task);
+            runInAction(() => {
+                const taskId = response.data.data.tasks[0].id;
+                console.log(`Created task with id: ${taskId}`);
+                task.id = taskId;
+                this.taskRegistry.set(taskId, task);
                 this.selectedTask = task;
                 this.editMode = false;
                 this.loading = false;

@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { Response, Task } from '../models/activity';
+import { Task, TaskResponse } from '../models/task';
+import { User, UserResponse } from '../models/user';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -7,8 +8,8 @@ const sleep = (delay: number) => {
     })
 }
 
-//axios.defaults.baseURL = 'http://localhost:5000/api';
-axios.defaults.baseURL = 'https://www.melo.dk/my-web-apis/task-manager/v1';
+//axios.defaults.baseURL = 'http://localhost:82/v1'; // when connecting to a local php based api (hosted by MAMP Server (Not Apache!))
+axios.defaults.baseURL = 'https://www.melo.dk/my-web-apis/task-manager/v1'; // when connecting to a remote php based api (hosted by Nordic Way)
 
 axios.interceptors.response.use(async response => {
     try {
@@ -31,11 +32,12 @@ const requests = {
 
 const Tasks = {
     //list: () => requests.get<Activity[]>('/tasks'),
-    list: () => requests.get<Response>('/tasks'),
+    list: () => requests.get<TaskResponse>('/tasks'),
     //details: (id: string) => requests.get<Activity>(`/tasks/${id}`),
-    create: (task: Task) => axios.post<void>('/tasks', task),
+    create: (task: Task) => axios.post<TaskResponse>('/tasks', task),
     update: (task: Task) => axios.put<void>(`/tasks/${task.id}`, task),
-    delete: (id: number) => axios.delete<void>(`/tasks/${id}`)
+    delete: (id: number) => axios.delete<void>(`/tasks/${id}`),
+    createuser: (user: User) => axios.post<UserResponse>('/users', user)
 }
 
 const agent = {

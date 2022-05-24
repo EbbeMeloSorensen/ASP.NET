@@ -1,11 +1,11 @@
-export interface Response {
+export interface TaskResponse {
     statusCode: number;
     success: boolean;
     messages: string[];
-    data: Data;
+    data: TaskData;
 }
 
-export interface Data {
+export interface TaskData {
     rows_returned: number;
     tasks: Task[];
 }
