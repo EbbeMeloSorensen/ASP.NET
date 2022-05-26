@@ -45,6 +45,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://www.melo.dk/my-web-apps/react/task-manager",
   "devDependencies": {
     "@types/uuid": "^8.3.4"
   }
