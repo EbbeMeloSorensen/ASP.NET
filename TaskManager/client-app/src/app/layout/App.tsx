@@ -10,7 +10,7 @@ function App() {
   const {taskStore} = useStore();
   
   useEffect(() => {
-    taskStore.loadActivities();
+    taskStore.loadTasks();
   }, [taskStore])
     
   if (taskStore.loadingInitial) return <LoadingComponent content='Loading app' />

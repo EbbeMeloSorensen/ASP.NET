@@ -19,7 +19,7 @@ export default class TaskStore {
             (a.title > b.title) ? 1 : -1);
     }
 
-    loadActivities = async () => {
+    loadTasks = async () => {
         try {
             const response = await agent.Tasks.list();
 

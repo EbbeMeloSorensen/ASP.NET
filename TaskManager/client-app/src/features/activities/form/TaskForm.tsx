@@ -31,6 +31,7 @@ export default observer(function ActivityForm() {
             <Form onSubmit={handleSubmit} autoComplete='off'>
                 <Form.Input placeholder='Title' value={task.title} name='title' onChange={handleInputChange}/>
                 <Form.TextArea placeholder='Description' value={task.description} name='description' onChange={handleInputChange}/>
+                <Form.Input type='date' placeholder='Deadline' value={task.deadline} name='deadline' onChange={handleInputChange} />
                 <Button loading={loading} floated='right' positive type='submit' content='Submit' />
                 <Button onClick={closeForm} floated='right' type='button' content='Cancel' />
             </Form>

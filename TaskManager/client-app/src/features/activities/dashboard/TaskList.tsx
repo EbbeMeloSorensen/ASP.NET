@@ -19,7 +19,11 @@ export default observer(function TaskList() {
                 {tasksByTitle.map(task => (
                     <Item key={task.id}>
                         <Item.Content>
-                            <Item.Header as='a'>{task.title}: {task.description}</Item.Header>
+                            <Item.Header as='a'>{task.title}</Item.Header>
+                            <Item.Meta>{task.deadline}</Item.Meta>
+                            <Item.Description>
+                                <div>{task.description}</div>
+                            </Item.Description>
                             <Item.Extra>
                                 <Button onClick={() => taskStore.selectTask(task.id)} floated='right' content='View' color='blue' />
                                 <Button 
