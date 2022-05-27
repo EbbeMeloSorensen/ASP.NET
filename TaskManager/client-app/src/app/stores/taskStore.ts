@@ -33,6 +33,17 @@ export default class TaskStore {
             //console.log(response.data.tasks[0]);
 
             response.data.tasks.forEach(task => {
+                // Vi skal sætte formatet for datoen til et, der passer med et input-felt
+                // med typen 'date'
+                if(task.deadline === null) {
+                    task.deadline = "";
+                }
+                else {
+                    let day = task.deadline.substring(0, 2);
+                    let month = task.deadline.substring(3, 5);
+                    let year = task.deadline.substring(6, 10);
+                    task.deadline = `${year}-${month}-${day}`;
+                }
                 this.taskRegistry.set(task.id, task);
             })
 
@@ -84,7 +95,24 @@ export default class TaskStore {
             })
             */
 
-            const response = await agent.Tasks.create(task);
+            // Jeg er ikke sikker på om det her er god praksis, men det var, hvad jeg lige kunne finde ud af
+            // mth at supportere håndtering af datoer. Ideen er, at hvis brugeren ikke har sat nogen "deadline" dato,
+            // så skal den slet ikke være i objektet - man tilføjer den kun til objektet, hvis den er sat, og så
+            // skal den i øvrigt være sat i et format, der kræves af API'en.
+            let taskForApi = {
+                title: task.title,
+                description: task.description,
+                completed: task.completed
+            } as Task;
+
+            if(task.deadline !== "") {
+                let year = task.deadline.substring(0, 4);
+                let month = task.deadline.substring(5, 7);
+                let day = task.deadline.substring(8);
+                taskForApi.deadline = `${day}/${month}/${year} 00:00`;
+            }
+
+            const response = await agent.Tasks.create(taskForApi);
             runInAction(() => {
                 const taskId = response.data.data.tasks[0].id;
                 console.log(`Created task with id: ${taskId}`);
@@ -105,7 +133,28 @@ export default class TaskStore {
     updateTask = async (task: Task) => {
         this.loading = true;
         try {
-            await agent.Tasks.update(task);
+            // Samme princip som for createTask, hvor vi kun sætter deadline, hvis den er sat i formen.
+            // Bemærk, at API'et pt ikke supporterer at man kan erstatte en eksisterende deadline med null
+            let taskForApi = {
+                id: task.id,
+                title: task.title,
+                description: task.description,
+                completed: task.completed
+            } as Task;
+
+            if(task.deadline !== "") {
+                console.log("1");
+                let year = task.deadline.substring(0, 4);
+                let month = task.deadline.substring(5, 7);
+                let day = task.deadline.substring(8);
+                taskForApi.deadline = `${day}/${month}/${year} 00:00`;
+            }
+            else {
+                console.log("2");
+                console.log(task.deadline);
+            }
+
+            await agent.Tasks.update(taskForApi);
             runInAction(() => {
                 this.taskRegistry.set(task.id, task);
                 this.selectedTask = task;
