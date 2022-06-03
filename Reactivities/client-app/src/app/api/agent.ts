@@ -18,6 +18,18 @@ axios.interceptors.response.use(async response => {
     const {data, status} = error.response!;
     switch (status) {
         case 400:
+            let data_as_any = data as any; // The instructor doesn't do this, but I couldn't get it to compile without casting
+            if (data_as_any.errors) {
+                const modalStateErrors = [];
+                for (const key in data_as_any.errors) {
+                    if (data_as_any.errors[key]) {
+                        modalStateErrors.push(data_as_any.errors[key])
+                    }
+                }
+                throw modalStateErrors.flat();
+            } else {
+                toast.error(data_as_any)
+            }
             toast.error('bad request');
             break;
         case 401:
