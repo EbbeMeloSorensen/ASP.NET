@@ -16,10 +16,16 @@ axios.interceptors.response.use(async response => {
     await sleep(1000);
     return response;
 }, (error: AxiosError) => {
-    const {data, status} = error.response!;
+    const {data, status, config} = error.response!;
     let data_as_any = data as any; // The instructor doesn't do this, but I couldn't get it to compile without casting
     switch (status) {
         case 400:
+            if (typeof data === 'string') {
+                toast.error(data);
+            }
+            if (config.method === 'get' && data_as_any.errors.hasOwnProperty('id')) {
+                history.push('/not-found');
+            }
             if (data_as_any.errors) {
                 const modalStateErrors = [];
                 for (const key in data_as_any.errors) {
@@ -28,10 +34,7 @@ axios.interceptors.response.use(async response => {
                     }
                 }
                 throw modalStateErrors.flat();
-            } else {
-                toast.error(data_as_any)
             }
-            toast.error('bad request');
             break;
         case 401:
             toast.error('unauthorized');
