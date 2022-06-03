@@ -2,6 +2,7 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { Activity } from '../models/activity';
+import { store } from '../stores/store';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -16,9 +17,9 @@ axios.interceptors.response.use(async response => {
     return response;
 }, (error: AxiosError) => {
     const {data, status} = error.response!;
+    let data_as_any = data as any; // The instructor doesn't do this, but I couldn't get it to compile without casting
     switch (status) {
         case 400:
-            let data_as_any = data as any; // The instructor doesn't do this, but I couldn't get it to compile without casting
             if (data_as_any.errors) {
                 const modalStateErrors = [];
                 for (const key in data_as_any.errors) {
@@ -39,7 +40,8 @@ axios.interceptors.response.use(async response => {
             history.push('/not-found');
             break;
         case 500:
-            toast.error('server error');
+            store.commonStore.setServerError(data_as_any);
+            history.push('/server-error');
             break;
     }
     return Promise.reject(error);
