@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Domain;
 using Persistence;
+using API.Services;
 
 namespace API.Extensions
 {
@@ -20,6 +21,7 @@ namespace API.Extensions
             .AddSignInManager<SignInManager<AppUser>>();
 
             services.AddAuthentication();
+            services.AddScoped<TokenService>();
 
             return services;
         }
