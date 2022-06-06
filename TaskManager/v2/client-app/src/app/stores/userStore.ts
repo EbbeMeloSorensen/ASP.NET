@@ -17,8 +17,16 @@ export default class UserStore {
 
     login = async (creds: UserFormValues) => {
         try {
-            const user = await agent.Account.login(creds);
-            store.commonStore.setToken(user.token);
+            console.log('trying to log in as existing user')
+            console.log(creds);
+            const userLoginResponse = await agent.Account.login(creds);
+            console.log('So far so good without exceptions (2)')
+            console.log(`access token: ${userLoginResponse.data.access_token}`);
+            store.commonStore.setToken(userLoginResponse.data.access_token);
+            const user = {
+                username: creds.username,
+                token: userLoginResponse.data.access_token
+            } as User;
             runInAction(() => this.user = user);
             history.push('/activities');
             store.modalStore.closeModal();
@@ -45,9 +53,12 @@ export default class UserStore {
 
     register = async (creds: UserFormValues) => {
         try {
+            console.log('trying to register new user')
+            console.log(creds);
             const user = await agent.Account.register(creds);
-            store.commonStore.setToken(user.token);
-            runInAction(() => this.user = user);
+            console.log('So far so good without exceptions (1)')
+            // store.commonStore.setToken(user.token); // Todo: man får ikke et token tilbage fra php apiet
+            // runInAction(() => this.user = user);
             history.push('/activities');
             store.modalStore.closeModal();
         } catch (error) {

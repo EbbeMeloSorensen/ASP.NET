@@ -32,7 +32,9 @@ export default class ActivityStore {
     loadActivities = async () => {
         this.loadingInitial = true;
         try {
+            console.log('Trying to retrieve tasks');
             const activities = await agent.Activities.list();
+            console.log('So far so good (3)');
             activities.forEach(activity => {
                 this.setActivity(activity);
             })

@@ -22,8 +22,10 @@ function App() {
 
   useEffect(() => {
     if (commonStore.token) {
+      console.log("There is a token in the local store.. trying to get user");
       userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
+      console.log("No token in the local store");
       commonStore.setAppLoaded();
     }
   }, [commonStore, userStore])
