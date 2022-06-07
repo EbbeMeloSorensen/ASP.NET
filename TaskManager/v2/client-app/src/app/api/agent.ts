@@ -2,6 +2,7 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { Activity } from '../models/activity';
+import { TaskResponse } from '../models/task';
 import { User, UserFormValues, UserLoginResponse, UserLoginValues, UserRegistrationResponse } from '../models/user';
 import { store } from '../stores/store';
 
@@ -17,6 +18,7 @@ axios.defaults.baseURL = 'https://www.melo.dk/my-web-apis/task-manager/v2';
 axios.interceptors.request.use(config => {
     const token = store.commonStore.token;
     if (token && config.headers) {
+        console.log(`intercepting request - setting Authorization header to ${token}`);
         config.headers.Authorization = `${token}`;
     } 
     return config;
@@ -84,9 +86,14 @@ const Account = {
     register: (user: UserFormValues) => requests.post<UserRegistrationResponse>('/users', user)
 }
 
+const Tasks = {
+    list: () => requests.get<TaskResponse>('/tasks')
+}
+
 const agent = {
     Activities,
-    Account
+    Account,
+    Tasks
 }
 
 export default agent;

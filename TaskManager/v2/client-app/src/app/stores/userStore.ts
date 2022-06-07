@@ -20,7 +20,7 @@ export default class UserStore {
             console.log('trying to log in as existing user')
             console.log(creds);
             const userLoginResponse = await agent.Account.login(creds);
-            console.log('So far so good without exceptions (2)')
+            console.log(`So far so good without exceptions (after logging in - created a new session with id ${userLoginResponse.data.session_id})`)
             console.log(`access token: ${userLoginResponse.data.access_token}`);
             store.commonStore.setToken(userLoginResponse.data.access_token);
             const user = {

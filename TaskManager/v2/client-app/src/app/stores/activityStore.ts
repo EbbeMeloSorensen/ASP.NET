@@ -32,12 +32,15 @@ export default class ActivityStore {
     loadActivities = async () => {
         this.loadingInitial = true;
         try {
+            //console.log('Here, we would normally try to receive tasks, but for now we\'re skipping');
             console.log('Trying to retrieve tasks');
-            const activities = await agent.Activities.list();
+            // const activities = await agent.Activities.list();
+            const tasks = await agent.Tasks.list();
             console.log('So far so good (3)');
-            activities.forEach(activity => {
-                this.setActivity(activity);
-            })
+            console.log(tasks);
+            // activities.forEach(activity => {
+            //     this.setActivity(activity);
+            // })
             this.setLoadingInitial(false);
         } catch(error) {
             console.log(error);
