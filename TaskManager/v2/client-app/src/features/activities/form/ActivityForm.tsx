@@ -60,7 +60,7 @@ export default observer(function ActivityForm() {
 
     return (
         <Segment clearing>
-            <Header content='Activity Details' sub color='teal' />
+            <Header content='Task Details' sub color='teal' />
             <Formik
             validationSchema={validationSchema}
                 enableReinitialize
@@ -70,7 +70,7 @@ export default observer(function ActivityForm() {
                 <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name='title' placeholder='Title' />
                     <MyTextArea rows={3} placeholder='Description' name='description'/>
-                    <MySelectInput options={categoryOptions} placeholder='Category' name='category'/>
+                    <MySelectInput options={categoryOptions} placeholder='Completed' name='category'/>
                     <MyDateInput
                         placeholderText='Date'
                         name='date'
@@ -78,9 +78,6 @@ export default observer(function ActivityForm() {
                         timeCaption='time'
                         dateFormat='MMMM d, yyyy h:mm aa'
                     />
-                    <Header content='Location Details' sub color='teal' />
-                    <MyTextInput placeholder='City' name='city'/>
-                    <MyTextInput placeholder='Venue' name='venue'/>
                     <Button 
                         disabled={isSubmitting || !dirty || !isValid}
                         loading={loading} floated='right' 

@@ -11,10 +11,16 @@ export default observer(function ActivityDashboard() {
     const {loadActivities, activityRegistry} = activityStore;
   
     useEffect(() => {
-      if (activityRegistry.size <= 1) loadActivities();
+      if (activityRegistry.size <= 1) {
+          console.log("activityRegistry.size <= 1, therefore retrieving tasks");
+        loadActivities();
+      }
+      else {
+        console.log("activityRegistry.size > 1, therefore NOT retrieving tasks");
+      }
     }, [activityRegistry.size, loadActivities])
       
-    if (activityStore.loadingInitial) return <LoadingComponent content='Loading activities...' />    
+    if (activityStore.loadingInitial) return <LoadingComponent content='Loading tasks...' />    
     return (
         <Grid>
             <Grid.Column width='10'>

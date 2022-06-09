@@ -32,20 +32,35 @@ export default class ActivityStore {
     loadActivities = async () => {
         this.loadingInitial = true;
         try {
-            //console.log('Here, we would normally try to receive tasks, but for now we\'re skipping');
-            console.log('Trying to retrieve tasks');
+            console.log('Retrieving tasks...');
             // const activities = await agent.Activities.list();
-            const tasks = await agent.Tasks.list();
+            const taskResponse = await agent.Tasks.list();
             console.log('So far so good (3)');
-            console.log(tasks);
+            console.log(taskResponse);
             // activities.forEach(activity => {
             //     this.setActivity(activity);
             // })
+            taskResponse.data.tasks.forEach(task => {
+                const activity = {
+                    id: task.id.toString(),
+                    title: task.title,
+                    description: task.description,
+                    date: new Date(1975, 7, 24),
+                    category: "drinks",
+                    city: "Kylling",
+                    venue: "Bamse"
+                } as Activity;
+                this.setActivity(activity);
+            })
             this.setLoadingInitial(false);
         } catch(error) {
             console.log(error);
             this.setLoadingInitial(false);
         }
+    }
+
+    clearActivities = () => {
+        this.activityRegistry.clear();
     }
 
     loadActivity = async (id: string) => {
