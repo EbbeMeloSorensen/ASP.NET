@@ -1,5 +1,7 @@
 using Application.Activities;
 using Application.Core;
+using Application.Interfaces;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -28,8 +30,9 @@ namespace API.Extensions
                     policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
                 });
             });
-            IServiceCollection serviceCollection1 = services.AddMediatR(assemblies: typeof(List.Handler).Assembly);
-            IServiceCollection serviceCollection = services.AddAutoMapper(assemblies: typeof(MappingProfiles).Assembly);
+            services.AddMediatR(assemblies: typeof(List.Handler).Assembly);
+            services.AddAutoMapper(assemblies: typeof(MappingProfiles).Assembly);
+            services.AddScoped<IUserAccessor, UserAccessor>();
 
             return services;
         }
