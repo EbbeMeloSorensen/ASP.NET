@@ -58,11 +58,17 @@ export default class UserStore {
             console.log('trying to register new user')
             console.log(creds);
             const user = await agent.Account.register(creds);
-            console.log('So far so good without exceptions (1)')
+            //console.log('So far so good without exceptions (1)')
             // store.commonStore.setToken(user.token); // Todo: man får ikke et token tilbage fra php apiet
             // runInAction(() => this.user = user);
-            history.push('/activities');
+
+            var userFormValues = {
+                username: creds.username,
+                password: creds.password
+            } as UserFormValues;
+
             store.modalStore.closeModal();
+            this.login(userFormValues)
         } catch (error) {
             throw error;
         }
