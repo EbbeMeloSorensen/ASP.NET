@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react"
-import { Modal } from "semantic-ui-react";
 import ActivityStore from "./activityStore"
 import CommonStore from "./commonStore";
 import ModalStore from "./modalStore";
