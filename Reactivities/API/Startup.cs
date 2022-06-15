@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using API.Extensions;
 using API.Middleware;
 using Application.Activities;
+using API.SignalR;
 
 namespace API
 {
@@ -53,6 +54,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }
