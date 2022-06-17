@@ -25,11 +25,19 @@ export default class CommentStore{
 
             this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
                 // "because we're updating an observable, we need to use runInAction"
-                runInAction(() => this.comments = comments);
+                runInAction(() => {
+                    comments.forEach(comment => {
+                        comment.createdAt = new Date(comment.createdAt + 'Z');
+                    })
+                    this.comments = comments
+                });
             });
 
             this.hubConnection.on('ReceiveComment', (comment: ChatComment) => {
-                runInAction(() => this.comments.push(comment));
+                runInAction(() => {
+                    comment.createdAt = new Date(comment.createdAt);
+                    this.comments.unshift(comment);
+                });
             })
         }
     }
