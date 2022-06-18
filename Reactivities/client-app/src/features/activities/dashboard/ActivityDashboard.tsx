@@ -31,7 +31,8 @@ export default observer(function ActivityDashboard() {
                 <Button
                     floated='right'
                     content='More...'
-                    positiveonClick={handleGetNext}
+                    positive
+                    onClick={handleGetNext}
                     loading={loadingNext}
                     disabled={pagination?.totalPages === pagination?.currentPage}
                 />
