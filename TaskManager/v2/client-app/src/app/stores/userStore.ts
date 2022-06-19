@@ -37,7 +37,7 @@ export default class UserStore {
 
     logout = () => {
         console.log("logging out")
-        store.activityStore.clearActivities(); // Added by Ebbe
+        store.activityStore.clearActivities(); // Added by Ebbe - doesn't make a difference though
         store.commonStore.setToken(null);
         window.localStorage.removeItem('jwt');
         this.user = null;
