@@ -10,7 +10,7 @@ profile.arm.json
 *.db
 *.db-shm
 *.db-wal
-
+wwwroot
 
 # User-specific files
 *.rsuser
