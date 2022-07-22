@@ -229,6 +229,61 @@ Indtil videre kan React apien kun vise activities, som hvis den var en viewer. N
 1) Foretag refaktoreringer for at lave en hensigtsmæssig folderstruktur for React-projektet client-app, som vist i kurset.
 2) 
 
+
+### section 6: Axios
+
+### section 7: MobX
+
+MobX er et general purpuse library, der faciliterer noget publish subscribe pattern. Det er smart fordi komponenterne så kan abbonere på, hvad de har brug for fra et store, fremfor at skulle have ting passet fra deres parent komponenter 
+
+### section 8: Routing
+
+### section 9: Styling the User Interface
+
+### section 10: Error Handling
+
+### section 11: Forms
+
+Her bruger han libraryet Formik til at lave Forms siden, hvor man opretter nye activities og ændrer eksisterende
+
+### section 12: Identity
+
+### section 13: Client Side Login and Registration
+
+### section 14: Entity Framework Relationships
+
+### section 15: Feature - Client side attendance
+
+### section 16: API Image upload
+
+### section 17: Client Image Upload
+
+Der bruger vi en bl.a. en cropper
+
+### section 18: Challenge (Bio)
+
+### section 19: SignalR
+
+SignalR er et general purpose library, som vi bruger til at implementere en chat funktion
+
+### section 20: Followers / Following feature
+
+### section 21: Paging, Sorting and Filtering
+
+### section 22: Finishing Touches and publishing
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Annex: Procedure for setting up a React project and adding Semantic UI for styling
 
 Der er bøvl med at gøre det på den måde, som Neil anviser, hvilket vist har noget at gøre med at React 18 ikke er kompatibel med Semantic UI React endnu. Det manifesterer sig f.eks. i fejlbeskeden: "JSX element type 'X' does not have any construct or call signatures", hvis man prøver at tilføje visse Semantic UI elementer til sin brugergrænseflade. Der bliver snakket om problemet i forummet for Udemy-kurset, og en studerende ved navn Brian G har anvist en procedure, der tilsyneladende virker, og som er gengivet her med lidt ekstra detaljer:
