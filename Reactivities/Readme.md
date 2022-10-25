@@ -370,7 +370,7 @@ Der er bøvl med at gøre det på den måde, som Neil anviser, hvilket vist har 
 
     Now you should see the text "It works :-)" displayed on a white background
     
-    **IMPORTANT**: Notice that you can deploy the application by placing it at the server root, e.g. at a web hotel like nordicway. On the other hand, if you want to deploy it in a subfolder of the web server, you should do the following:
+    **IMPORTANT**: Notice that you can deploy the built application by placing it at the *server root*, e.g. at a web hotel like nordicway. On the other hand, if you want to deploy it in a subfolder of the web server, you should do the following, as described in the "Building for Relative Paths" section at this link: https://create-react-app.dev/docs/deployment/:
     
     12. Delete the node_modules folder and the package-lock.json file
     
