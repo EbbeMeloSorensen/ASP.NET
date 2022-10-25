@@ -369,3 +369,15 @@ Der er bøvl med at gøre det på den måde, som Neil anviser, hvilket vist har 
     ```
 
     Now you should see the text "It works :-)" displayed on a white background
+    
+    **IMPORTANT**: Notice that you can deploy the application by placing it at the server root, e.g. at a web hotel like nordicway. On the other hand, if you want to deploy it in a subfolder of the web server, you should do the following:
+    
+    12. Delete the node_modules folder and the package-lock.json file
+    
+    13. Add a line like the following one at the end of the package.json file:
+    
+        `"homepage": "https://www.melo.dk/my-web-apps/react/semantic_ui_react_trivial"`.
+    
+    14. Execute `npm run build` at the command line to make a production build
+    
+    15. Copy the application to a path on the web server that corresponds to the homepage line in the package.json file
