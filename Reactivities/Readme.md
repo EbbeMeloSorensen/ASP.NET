@@ -184,7 +184,7 @@ Nu hvor vi er færdige med backenden, skal vi til at arbejde med front enden. I 
 
 5. Kør api'en fra VS Code ved at åbne et konsolvindue, navigere til API-folderen og skrive: dotnet watch run. Det bringer det sædvanlige swagger vindue op.
 
-6. Start et *ekstra* konsolvindue i VS Code, naviger til client-app folderen, og eksekver: npm install axios
+6. Start et *ekstra* konsolvindue i VS Code, naviger til client-app folderen, og eksekver: `npm install axios`
 
 7. Ændr filen App.tsx ved at importere axios og tilføje 2 React hooks: **useState** og **useEffect** , som beskrevet i kurset. Han siger, at den selv laver det nødvendige import statement, men det lader ikke til at være tilfældet.
 
